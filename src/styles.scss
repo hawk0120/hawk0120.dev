@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-grey: #F0F0F0;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 95%;
+  width: 60%;
+  margin: auto ;
+  padding: 10px;
+  font-family: 'Inter', sans-serif;
+  background-color: $color-white;
+  color: $color-black;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.6;
+}
+
+main {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  height: 100vh;
+}

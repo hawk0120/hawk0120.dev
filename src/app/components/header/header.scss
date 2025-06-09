@@ -1,0 +1,23 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+header p {
+}
+
+header .header-right {
+  display: flex;
+  gap: 2rem;
+}
+
+header .header-right a {
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+

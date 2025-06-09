@@ -1,0 +1,22 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  overflow: visible;
+  width: 800px;
+  justify-content: space-between;
+  margin: 0 auto;
+
+}
+
+.icon {
+  padding: 1rem;
+  width: 10px;
+  height: 10px;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+
