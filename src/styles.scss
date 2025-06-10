@@ -1,7 +1,14 @@
-$color-white: #FFFFFF;
-$color-black: #000000;
-$color-grey: #F0F0F0;
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-grey: #f0f0f0;
+}
 
+[data-theme="dark"] {
+  --color-white: #1a1a1a;
+  --color-black: #f0f0f0;
+  --color-grey: #333333;
+}
 * {
   margin: 0;
   padding: 0;
@@ -13,9 +20,9 @@ html, body {
   width: 60%;
   margin: auto ;
   padding: 10px;
-  font-family: 'Inter', sans-serif;
-  background-color: $color-white;
-  color: $color-black;
+  font-family: 'Courier', Monospace;
+  background-color: var(--color-white);
+  color: var(--color-black);
   scroll-behavior: smooth;
 }
 

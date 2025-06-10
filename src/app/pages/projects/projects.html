@@ -1,8 +1,9 @@
 <ul>
   <li *ngFor="let project of projects$ | async">
-    <h3>{{ project.name }}</h3>
+    <a *ngIf="project.url" [href]="project.url" target="_blank" rel="noopener noreferrer">
+      <h3>{{ project.name }}</h3>
+    </a>
     <p>{{ project.description }}</p>
-    <a *ngIf="project.url" [href]="project.url" target="_blank" rel="noopener noreferrer">Visit</a>
   </li>
 </ul>
 

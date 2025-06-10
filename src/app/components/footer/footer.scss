@@ -1,22 +1,26 @@
-.footer {
-  position: fixed;
-  bottom: 0;
+footer {
   display: flex;
-  overflow: visible;
-  width: 800px;
   justify-content: space-between;
-  margin: 0 auto;
-
-}
-
-.icon {
+  align-items: center;
   padding: 1rem;
-  width: 10px;
-  height: 10px;
 }
 
-.icon:hover {
-  cursor: pointer;
+footer .social-icons {
+  display: flex;
+  gap: 1rem;
+
+  &:hover {
+    transform: rotate(360deg);
+    cursor: pointer;
+  }
 }
 
+footer .social-icons a {
+  color: inherit;
+  text-decoration: none;
+}
 
+footer .icon-container {
+  display: flex;
+  gap: 1rem;
+}
