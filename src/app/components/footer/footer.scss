@@ -8,11 +8,6 @@ footer {
 footer .social-icons {
   display: flex;
   gap: 1rem;
-
-  &:hover {
-    transform: rotate(360deg);
-    cursor: pointer;
-  }
 }
 
 footer .social-icons a {
@@ -20,7 +15,15 @@ footer .social-icons a {
   text-decoration: none;
 }
 
-footer .icon-container {
+.icon-container {
   display: flex;
   gap: 1rem;
 }
+.icon-container i {
+  &:hover {
+    transform: rotate(360deg);
+    transition: all 0.3s ease;
+  }
+}
+
+

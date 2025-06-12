@@ -3,11 +3,10 @@
   <div class="header-right">
   <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
   <a routerLink="/projects" routerLinkActive="active">Projects</a>
-  <a routerLink="/contact" routerLinkActive="active">Chat</a>
-<button class="icon-btn" (click)="toggleDarkMode()" aria-label="Toggle dark mode">
-  <span *ngIf="theme === 'dark'">☀️</span>
-  <span *ngIf="theme === 'light'">🌙</span>
-</button>
+  <button class="icon-btn" (click)="toggleDarkMode()" aria-label="Toggle dark mode">
+    <span *ngIf="theme === 'dark'"><i class="fa-solid fa-campground"></i></span>
+    <span *ngIf="theme === 'light'"><i class="fa-solid fa-fire"></i></span>
+  </button>
 
   </div>
 </header>
