@@ -1,29 +1,43 @@
 :root {
+  height: 100%;
+  width: 100%;
+  --color-white: #1a1a1a;
+  --color-black: #f0f0f0;
+  --color-grey: #333333;
+}
+
+[data-theme="dark"] {
   --color-white: #ffffff;
   --color-black: #000000;
   --color-grey: #f0f0f0;
 }
 
-[data-theme="dark"] {
-  --color-white: #1a1a1a;
-  --color-black: #f0f0f0;
-  --color-grey: #333333;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 html, body {
-  height: 95%;
+  height: 100%;
   width: 60%;
-  margin: auto ;
+  margin: 0 auto;
   padding: 10px;
-  font-family: 'Courier', Monospace;
+  font-family: 'JetBrains', Monospace;
   background-color: var(--color-white);
   color: var(--color-black);
   scroll-behavior: smooth;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ensure it fills viewport */
 }
 
 a {
@@ -36,8 +50,3 @@ a:hover {
   opacity: 0.6;
 }
 
-main {
-  padding: 4rem 2rem;
-  max-width: 900px;
-  height: 100vh;
-}

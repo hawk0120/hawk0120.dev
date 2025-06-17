@@ -1,6 +1,15 @@
 .home-container {
-   padding-top: 1rem;
-   margin:auto;
-   height: 100%;
-   width: 100%;
- }
+  padding: 1rem;
+}
+.photo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* or any height */
+}
+
+.home-photo {
+  max-width: 30%;
+  border-radius: 8px;
+}
+
