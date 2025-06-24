@@ -50,3 +50,16 @@ a:hover {
   opacity: 0.6;
 }
 
+@media (max-width: 767px) {
+  html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    font-family: 'JetBrains', Monospace;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    scroll-behavior: smooth;
+  }
+}
+

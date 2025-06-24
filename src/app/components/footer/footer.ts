@@ -1,24 +1,14 @@
-import { Component, AfterViewInit, Renderer2 } from '@angular/core';
-import {CarbonBadgeComponent} from './carbon-badge/carbon-badge';
+import { Component } from '@angular/core';
 
 @Component({
   standalone: true,
   selector: 'app-footer',
-  imports: [CarbonBadgeComponent],
+  imports: [],
   templateUrl: './footer.html',
   styleUrls: ['./footer.scss']
 })
 
-export class FooterComponent implements AfterViewInit {
+export class FooterComponent {
   currentYear = new Date().getFullYear();
-
-  constructor(private renderer: Renderer2) {}
-
-  ngAfterViewInit(): void {
-    const script = this.renderer.createElement('script');
-    script.src = 'assets/website-carbon-badges/b.min.js';
-    script.defer = true;
-    this.renderer.appendChild(document.body, script);
-  }
 }
 

@@ -1,6 +1,7 @@
 .home-container {
   padding: 1rem;
 }
+
 .photo-container {
   display: flex;
   justify-content: center;
@@ -11,5 +12,17 @@
 .home-photo {
   max-width: 30%;
   border-radius: 8px;
+}
+
+/* Optional mobile layout */
+@media (max-width: 767px) {
+  .photo-container {
+    height: auto;
+    padding: 1rem 0;
+  }
+
+  .home-photo {
+    max-width: 80%;
+  }
 }
 

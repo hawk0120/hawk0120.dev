@@ -20,15 +20,26 @@ footer .social-icons a {
   display: flex;
   gap: 1rem;
 }
+
 .icon-container i {
-  &:hover {
-    transform: rotate(360deg);
-    transition: all 0.3s ease;
+  transition: transform 0.3s ease;
+}
+
+.icon-container i:hover {
+  transform: rotate(360deg);
+}
+
+/* Optional mobile layout */
+@media (max-width: 767px) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  footer .social-icons,
+  .icon-container {
+    margin-top: 0.5rem;
+    justify-content: center;
   }
 }
 
-wcb {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
