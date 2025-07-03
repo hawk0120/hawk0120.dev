@@ -34,12 +34,6 @@ export class ProjectService {
       url: 'http://www.songbirdtribe.com',
     },
     {
-      name: 'Cooking With Andrea Application',
-      description:
-        'A cross platform recipe application using React Native. Uses backend RESTful API using Node.js, Express, and MongoDB to shuttle recipes to a React Native front end',
-      url: '',
-    },
-    {
       name: 'bowmaneconomics.ca',
       description:
         'A static website written in vanilla javascript, html, and css. The client wanted a stripped down UI to market their services.',
