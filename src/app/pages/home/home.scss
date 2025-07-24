@@ -10,14 +10,13 @@
 }
 
 .home-photo {
-  max-width:  400px;
+  max-width:  350px;
   border-radius: 8px;
 }
 
 @media (max-width: 767px) {
   .photo-container {
     height: auto;
-    padding: 1rem 0;
   }
 
   .home-photo {
