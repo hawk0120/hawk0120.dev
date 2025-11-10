@@ -1,4 +1,4 @@
-<ul>
+<ul class="fade-lines">
   <li *ngFor="let project of projects$ | async">
     <a *ngIf="project.url" [href]="project.url" target="_blank" rel="noopener noreferrer">
       <h3>{{ project.name }}</h3>

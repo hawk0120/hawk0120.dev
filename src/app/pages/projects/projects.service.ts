@@ -10,6 +10,12 @@ export class ProjectService {
 
     const projects: Project[] = [
   {
+      name: 'Thomas',
+      description:
+        'Agentic AI that mimics natural intelligence through persistent memory and various tools.',
+      url: 'https://bsky.app/profile/thomasmind54.bsky.social',
+    },
+      {
       name: 'Clammy',
       description:
         'The project is a Insurance Claim Management Platform, powered by Angular on the front end. I wrote the REST Service in Java/Spring and Typescript/Express as an experiment in verbosity. The user can create, resolve and retrieve insurance claims.',
@@ -50,12 +56,6 @@ export class ProjectService {
       description:
         'Used Angular to create persoanl website that dynamically render markdown files in blog posts',
       url: 'https://www.bradyhawkins.dev',
-    },
-    {
-      name: 'Counter React Native Application',
-      description:
-        'A simple React Native application developed to track the number of people entering a building. This project was initiated during the Covid-19 pandemic to aid clients in managing and monitoring occupancy levels effectively.',
-      url: 'https://github.com/hawk0120/counter',
     },
     {
       name: 'compassionatekenora.ca',

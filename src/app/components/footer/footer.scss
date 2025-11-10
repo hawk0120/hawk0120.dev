@@ -8,7 +8,6 @@ footer {
 
 footer .social-icons {
   display: flex;
-  gap: 1rem;
 }
 
 footer .social-icons a {
@@ -18,18 +17,11 @@ footer .social-icons a {
 
 .icon-container {
   display: flex;
-  gap: 1rem;
+  font-size: 0.75em;
+  gap: 0.5rem;
 }
 
-.icon-container i {
-  transition: transform 0.3s ease;
-}
 
-.icon-container i:hover {
-  transform: rotate(360deg);
-}
-
-/* Optional mobile layout */
 @media (max-width: 767px) {
   footer {
     flex-direction: column;

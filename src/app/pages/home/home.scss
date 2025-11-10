@@ -1,18 +1,39 @@
 .home-container {
-  padding: 1rem;
+  margin: auto;
+  width: 800px;
+  z-index: 10;
+}
+
+.fade-lines > * {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(10px);
+  }
 }
 
 .photo-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh;
+  height: 40vh;
+  padding-top: 3em;
 }
 
 .home-photo {
-  max-width:  350px;
-  border-radius: 8px;
+  max-width: 350px;
+  border-radius: 15px;
 }
+
+.fade-lines > *:nth-child(1) { animation-delay: 0s; }
+.fade-lines > *:nth-child(2) { animation-delay: 0.5s; }
+.fade-lines > *:nth-child(3) { animation-delay: 1s; }
+.fade-lines > *:nth-child(4) { animation-delat: 1.5s; }
 
 @media (max-width: 767px) {
   .photo-container {
