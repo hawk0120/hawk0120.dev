@@ -4,3 +4,9 @@ main {
  margin: auto;
  width: 700px;
 }
+@media (max-width: 768px) {
+  main {
+    width: 90%;
+  }
+}
+

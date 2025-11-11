@@ -38,12 +38,19 @@
 .fade-lines > *:nth-child(6) { animation-delay: 1.0s; }
 
 @media (max-width: 767px) {
+  .home-container {
+    width: 90%;
+  }
+
   .photo-container {
+    flex-direction: column;
     height: auto;
+    padding-top: 2em;
   }
 
   .home-photo {
     max-width: 80%;
   }
 }
+
 
