@@ -1,13 +1,32 @@
 <div *ngIf="post; else notFound" class="fade-lines">
+  <div class="back-button">
+  <a routerLink="/blog">← Back to Blog</a>
+</div>
+
   <h1>{{ post.title }}</h1>
   <i>
-    <p><strong>Author:</strong> Brady Hawkins | <strong>Published:</strong> {{ post.publishedAt | date }}</p>
+    <p><strong>Author:</strong> {{ post.author }} | <strong>Published:</strong> {{ post.publishedAt | date }}</p>
     <p>{{ post.description }}</p>
   </i>
-  <div class="post" *ngFor="let page of post.pages">
-    <div *ngFor="let block of page.blocks">
-      <p>{{ block.plaintext }}</p>
-    </div>
+
+  <div class="post">
+    <ng-container *ngFor="let page of post.pages">
+      <ng-container *ngFor="let block of page.blocks; let i = index">
+        <!-- Text block -->
+        <p *ngIf="block.plaintext" [ngStyle]="{ 'animation-delay': (i * 0.15) + 's' }">
+          {{ block.plaintext }}
+        </p>
+
+        <!-- Image block -->
+        <img
+          *ngIf="block.imageUrl"
+          [src]="block.imageUrl"
+          [alt]="block.alt || ''"
+          class="post-image"
+          [ngStyle]="{ 'animation-delay': (i * 0.15) + 's' }"
+        />
+      </ng-container>
+    </ng-container>
   </div>
 </div>
 
