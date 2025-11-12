@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BlogService, LeafletDocument } from '../../services/blog-service';
 
 @Component({
   selector: 'app-post',
-  imports: [ CommonModule ],
+  imports: [ CommonModule, RouterLink ],
   templateUrl: './post.html',
   styleUrl: './post.scss'
 })
