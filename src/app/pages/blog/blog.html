@@ -1,0 +1,10 @@
+<div *ngIf="loading" class="loading">Loading posts...</div>
+
+<ul *ngIf="!loading" class="blog-post">
+  <li *ngFor="let doc of documents">
+    <a [routerLink]="['/blog', doc.id]">{{ doc.title }}</a>
+
+    | <small>{{ doc.publishedAt | date }}</small>
+  </li>
+</ul>
+
