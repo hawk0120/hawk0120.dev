@@ -1,0 +1,52 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { map, tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+
+export interface LeafletDocument {
+  id: string;
+  title: string;
+  author: string;
+  description: string;
+  publishedAt: string;
+  pages: {
+    blocks: { plaintext: string }[];
+  }[];
+}
+
+
+@Injectable({ providedIn: 'root' })
+
+
+export class BlogService {
+  private documents$ = new BehaviorSubject<LeafletDocument[] | null>(null);
+  private url = 'https://bsky.social/xrpc/com.atproto.repo.listRecords?repo=did:plc:da6iyhwpub7pnqbj5booh2by&collection=pub.leaflet.document';
+
+  constructor(private http: HttpClient) {}
+
+  fetchDocuments(): Observable<LeafletDocument[]> {
+    return this.http.get<any>(this.url).pipe(
+      map((res) =>
+        res.records.map((record: any) => ({
+          id: record.uri,
+          title: record.value.title,
+          author: record.value.author,
+          description: record.value.description,
+          publishedAt: record.value.publishedAt,
+          pages: record.value.pages.map((p: any) => ({
+            blocks: p.blocks.map((b: any) => ({ plaintext: b.block.plaintext })),
+          })),
+        }))
+      ),
+      tap((docs: LeafletDocument[]) => this.documents$.next(docs))
+    );
+  }
+
+  getDocuments(): Observable<LeafletDocument[] | null> {
+    return this.documents$.asObservable();
+  }
+
+  getDocumentById(id: string): LeafletDocument | undefined {
+    return this.documents$.value?.find((doc: LeafletDocument) => doc.id === id);
+  }
+}

@@ -16,7 +16,7 @@ export class ProjectService {
       url: 'https://bsky.app/profile/thomasmind54.bsky.social',
     },
       {
-      name: 'Clammy',
+      name: 'clammy',
       description:
         'The project is a Insurance Claim Management Platform, powered by Angular on the front end. I wrote the REST Service in Java/Spring and Typescript/Express as an experiment in verbosity. The user can create, resolve and retrieve insurance claims.',
       url: 'https://github.com/hawk0120/clammy',
@@ -25,13 +25,13 @@ export class ProjectService {
       name: 'debby',
       description:
         'debby is file based database system. I enjoy the speed and ease of sqlLite, but found myself wanting something even simpler so I built a database system that stores data in a file. It has read, write, and update commands. It loads the entire database into memory when the read command is called. Its a simple solution for small projects.',
-      url: 'https://www.bradyhawkins.dev/blog/bld-debby',
+      url: 'https://github.com/hawk0120/debby',
     },
     {
       name: 'Weapy',
       description:
         "Developed a mobile application that tracks and displays real-time pollen levels for trees, grass, weeds, and mold based on the user's current location. Used React Native, @rneui/themed for custom theming, and react-native-elements for UI components. Features include automatic location-based updates, a manual location reset modal, and animated indicators for pollen severity.",
-      url: 'https://www.bradyhawkins.dev/blog/bld-weepy',
+      url: 'https://www.bradyhawkins.dev/blog/',
     },
     {
       name: 'Songbird Tribe',

@@ -1,0 +1,23 @@
+.fade-lines > * {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+}
+
+.fade-lines > *:nth-child(1) { animation-delay: 0s; }
+.fade-lines > *:nth-child(2) { animation-delay: 0.2s; }
+.fade-lines > *:nth-child(3) { animation-delay: 0.4s; }
+.fade-lines > *:nth-child(4) { animation-delay: 0.6s; }
+.fade-lines > *:nth-child(5) { animation-delay: 0.8s; }
+.fade-lines > *:nth-child(6) { animation-delay: 1.0s; }
+
+.post {
+  font-family: Helvetica, Arial, sans-serif;
+}
