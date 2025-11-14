@@ -1,6 +1,7 @@
 .home-container {
   margin: auto;
-  width: 800px;
+  max-width: 800px; /* instead of fixed width */
+  width: 90%;       /* responsive on smaller screens */
   z-index: 10;
 }
 
@@ -13,7 +14,7 @@
 @keyframes fadeIn {
   to {
     opacity: 1;
-    transform: translateY(10px);
+    transform: translateY(0); /* corrected from 10px to 0 for proper fade-in */
   }
 }
 
@@ -21,12 +22,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40vh;
+  height: auto;  /* auto height to prevent overflow */
   padding-top: 3em;
 }
 
 .home-photo {
-  max-width: 350px;
+  max-width: 100%;  /* scales with container */
+  width: 350px;     /* base width */
+  height: auto;     /* maintain aspect ratio */
   border-radius: 15px;
 }
 
@@ -37,6 +40,17 @@
 .fade-lines > *:nth-child(5) { animation-delay: 0.8s; }
 .fade-lines > *:nth-child(6) { animation-delay: 1.0s; }
 
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .home-container {
+    width: 95%;
+  }
+
+  .home-photo {
+    width: 250px;  /* smaller on laptops/tablets */
+  }
+}
+
 @media (max-width: 767px) {
   .home-container {
     width: 90%;
@@ -44,13 +58,10 @@
 
   .photo-container {
     flex-direction: column;
-    height: auto;
     padding-top: 2em;
   }
 
   .home-photo {
-    max-width: 80%;
+    width: 80%;
   }
 }
-
-
