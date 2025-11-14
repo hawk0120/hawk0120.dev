@@ -5,6 +5,15 @@
   z-index: 10;
 }
 
+.home-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2em;
+  justify-content: center;
+  flex-wrap: wrap; /* allows stacking on smaller screens */
+}
+
 .fade-lines > * {
   opacity: 0;
   transform: translateY(10px);
