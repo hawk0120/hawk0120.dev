@@ -5,12 +5,14 @@ import { HomeComponent } from './pages/home/home';
 import { ProjectsComponent } from './pages/projects/projects';
 import { BlogComponent } from './pages/blog/blog';
 import { PostComponent } from './components/post/post';
+import { ContactComponent } from './pages/contact/contact';
 
 export const routes: Routes = [
 { path: '', component: HomeComponent },
 { path: 'projects', component: ProjectsComponent },
 { path: 'blog', component: BlogComponent },
-{ path: 'blog/:id', component: PostComponent}
+{ path: 'blog/:id', component: PostComponent},
+{ path: 'contact', component: ContactComponent}
 ];
 
 @NgModule({
