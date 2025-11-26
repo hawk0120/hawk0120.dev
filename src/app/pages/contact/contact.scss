@@ -4,7 +4,7 @@
   padding: 2rem;
 
   .success-message {
-    display: none; // hidden by default, can show with JS after submission
+    display: none;
     padding: 1rem;
     margin-bottom: 1.5rem;
     border-radius: 5px;
@@ -22,7 +22,6 @@
     flex-direction: column;
     gap: 1.5rem;
 
-    /* Fade-in animation for form children */
     > * {
       opacity: 0;
       transform: translateY(10px);
