@@ -3,6 +3,8 @@ main {
  padding-bottom: 1rem;
  margin: auto;
  width: 700px;
+ position: relative;
+ z-index: 2;
 }
 @media (max-width: 768px) {
   main {
