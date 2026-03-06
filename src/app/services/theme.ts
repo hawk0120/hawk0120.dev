@@ -9,7 +9,7 @@ const MIDDELBURG = {
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
-  private currentTheme = new BehaviorSubject<'light' | 'dark'>('light');
+  private currentTheme = new BehaviorSubject<'light' | 'dark'>('dark');
   theme$ = this.currentTheme.asObservable();
 
   constructor() {
