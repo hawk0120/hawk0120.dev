@@ -12,8 +12,41 @@
   <div class="post">
     <ng-container *ngFor="let page of post.pages">
       <ng-container *ngFor="let block of page.blocks; let i = index">
-        <!-- Text block -->
-        <p *ngIf="block.plaintext" [ngStyle]="{ 'animation-delay': (i * 0.15) + 's' }">
+        <!-- Heading 1 -->
+        <h1 *ngIf="block.type === 'heading1'" [ngStyle]="{ 'animation-delay': (i * 0.15) + 's' }">
+          {{ block.plaintext | slice:2 }}
+        </h1>
+
+        <!-- Heading 2 -->
+        <h2 *ngIf="block.type === 'heading2'" [ngStyle]="{ 'animation-delay': (i * 0.15) + 's' }">
+          {{ block.plaintext | slice:3 }}
+        </h2>
+
+        <!-- Heading 3 -->
+        <h3 *ngIf="block.type === 'heading3'" [ngStyle]="{ 'animation-delay': (i * 0.15) + 's' }">
+          {{ block.plaintext | slice:4 }}
+        </h3>
+
+        <!-- Code block -->
+        <pre *ngIf="block.type === 'code'" [ngStyle]="{ 'animation-delay': (i * 0.15) + 's' }"><code>{{ block.plaintext }}</code></pre>
+
+        <!-- Blockquote -->
+        <blockquote *ngIf="block.type === 'blockquote'" [ngStyle]="{ 'animation-delay': (i * 0.15) + 's' }">
+          {{ block.plaintext | slice:2 }}
+        </blockquote>
+
+        <!-- Unordered list item -->
+        <li *ngIf="block.type === 'unorderedList'" [ngStyle]="{ 'animation-delay': (i * 0.15) + 's' }">
+          {{ block.plaintext | slice:2 }}
+        </li>
+
+        <!-- Ordered list item -->
+        <li *ngIf="block.type === 'orderedList' && block.plaintext" [ngStyle]="{ 'animation-delay': (i * 0.15) + 's' }">
+          {{ block.plaintext.substring(block.plaintext.indexOf('.') + 2) }}
+        </li>
+
+        <!-- Paragraph (default) -->
+        <p *ngIf="!block.imageUrl && block.type === 'paragraph'" [ngStyle]="{ 'animation-delay': (i * 0.15) + 's' }">
           {{ block.plaintext }}
         </p>
 
