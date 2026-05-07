@@ -1,19 +1,28 @@
-export const manifest = {
+export const manifest = (() => {
+function __memo(fn) {
+	let value;
+	return () => value ??= (value = fn());
+}
+
+return {
 	appDir: "_app",
 	appPath: "_app",
 	assets: new Set(["badge.js","favicon.webp","photo-me.webp"]),
-	mimeTypes: {".js":"application/javascript",".webp":"image/webp"},
+	mimeTypes: {".js":"text/javascript",".webp":"image/webp"},
 	_: {
-		client: {"start":"_app/immutable/entry/start.057a434b.js","app":"_app/immutable/entry/app.f9ca9a45.js","imports":["_app/immutable/entry/start.057a434b.js","_app/immutable/chunks/scheduler.dd196d9e.js","_app/immutable/chunks/singletons.9c5f2964.js","_app/immutable/entry/app.f9ca9a45.js","_app/immutable/chunks/preload-helper.a4192956.js","_app/immutable/chunks/scheduler.dd196d9e.js","_app/immutable/chunks/index.08a51704.js"],"stylesheets":[],"fonts":[]},
+		client: {start:"_app/immutable/entry/start.BVhTC-o1.js",app:"_app/immutable/entry/app.BVvfUOPX.js",imports:["_app/immutable/entry/start.BVhTC-o1.js","_app/immutable/chunks/B5vmf-NT.js","_app/immutable/chunks/BD5CU8nl.js","_app/immutable/entry/app.BVvfUOPX.js","_app/immutable/chunks/C1FmrZbK.js","_app/immutable/chunks/BD5CU8nl.js","_app/immutable/chunks/CuF5X48q.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
 		nodes: [
-			() => import('./nodes/0.js'),
-			() => import('./nodes/1.js'),
-			() => import('./nodes/2.js'),
-			() => import('./nodes/3.js'),
-			() => import('./nodes/4.js'),
-			() => import('./nodes/5.js'),
-			() => import('./nodes/6.js')
+			__memo(() => import('./nodes/0.js')),
+			__memo(() => import('./nodes/1.js')),
+			__memo(() => import('./nodes/2.js')),
+			__memo(() => import('./nodes/3.js')),
+			__memo(() => import('./nodes/4.js')),
+			__memo(() => import('./nodes/5.js')),
+			__memo(() => import('./nodes/6.js'))
 		],
+		remotes: {
+			
+		},
 		routes: [
 			{
 				id: "/",
@@ -55,12 +64,15 @@ export const manifest = {
 				pattern: /^\/rss\.xml\/?$/,
 				params: [],
 				page: null,
-				endpoint: () => import('./entries/endpoints/rss.xml/_server.js')
+				endpoint: __memo(() => import('./entries/endpoints/rss.xml/_server.js'))
 			}
 		],
+		prerendered_routes: new Set([]),
 		matchers: async () => {
 			
 			return {  };
-		}
+		},
+		server_assets: {}
 	}
-};
+}
+})();

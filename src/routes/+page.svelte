@@ -3,7 +3,7 @@
     <p>Hi! Thanks for stopping by.</p>
     <p>
     I’m Brady, a Canadian software engineer based in the Netherlands. 
-		I currently work on the financials team at Keylane. I enjoy building 
+		I am currently work on the financials team at Keylane. I enjoy building 
 		products and features that put more control back in users’ hands.
    </p> 
 		<p>

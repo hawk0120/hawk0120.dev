@@ -7,14 +7,13 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@sveltejs/kit": "^2.0.0",
-    "@sveltejs/vite-plugin-svelte": "^3.0.0",
+    "@sveltejs/adapter-vercel": "^5.0.0",
+    "@sveltejs/kit": "^2.16.0",
+    "@sveltejs/vite-plugin-svelte": "^3.1.0",
     "svelte": "4.2.18",
-    "vite": "^5.0.0"
+    "vite": "^5.4.0"
   },
   "dependencies": {
-    "@sveltejs/adapter-auto": "^3.0.0",
-    "@sveltejs/adapter-static": "^3.0.0",
     "svelte-carbonbadge": "^0.0.1",
     "website-carbon-badges": "^1.1.3"
   },

@@ -1,4 +1,23 @@
 import { g as getContext } from "./ssr.js";
+import "@sveltejs/kit/internal";
+import "./exports.js";
+import "./utils.js";
+import "@sveltejs/kit/internal/server";
+import { o as onMount } from "./ssr2.js";
+const is_legacy = onMount.toString().includes("$$") || /function \w+\(\) \{\}/.test(onMount.toString());
+const placeholder_url = "a:";
+if (is_legacy) {
+  ({
+    data: {},
+    form: null,
+    error: null,
+    params: {},
+    route: { id: null },
+    state: {},
+    status: -1,
+    url: new URL(placeholder_url)
+  });
+}
 const getStores = () => {
   const stores = getContext("__svelte__");
   return {
