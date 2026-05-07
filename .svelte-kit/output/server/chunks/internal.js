@@ -105,7 +105,51 @@ const options = {
   root: Root,
   service_worker: false,
   templates: {
-    app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charset="utf-8" />\n    <meta name="viewport" content="width=device-width, initial-scale=1" />\n    <link rel="icon" href="/favicon.webp" />\n    ' + head + '\n  </head>\n  <body>\n    <div id="svelte">' + body + "</div>\n  </body>\n</html>\n",
+    app: ({ head, body, assets: assets2, nonce, env }) => `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.webp" />
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    <\/script>
+    <style>
+      :root {
+        --bg-color: #0a0a0a;
+        --text-color: #e0e0e0;
+        --header-bg: transparent;
+        --header-text: #e0e0e0;
+        --footer-bg: transparent;
+        --footer-text: #e0e0e0;
+        --border-color: #333;
+        --accent-color: #64b5f6;
+      }
+      html[data-theme="light"] {
+        --bg-color: #ffffff;
+        --text-color: #1a1a1a;
+        --header-bg: transparent;
+        --header-text: #1a1a1a;
+        --footer-bg: transparent;
+        --footer-text: #1a1a1a;
+        --border-color: #ddd;
+        --accent-color: #1976d2;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+    ` + head + '\n  </head>\n  <body>\n    <div id="svelte">' + body + "</div>\n  </body>\n</html>\n",
     error: ({ status, message }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + `</title>
 
 		<style>
@@ -167,7 +211,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "1hn907y"
+  version_hash: "16g7hnb"
 };
 function get_hooks() {
   return {};

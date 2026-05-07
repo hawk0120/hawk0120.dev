@@ -77,14 +77,10 @@
   }
 
   .blog-post a {
-    color: var(--accent-color);
+    color: var(--text-color);
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: 500;
-  }
-
-  .blog-post a:hover {
-    text-decoration: underline;
   }
 
   .blog-post small {

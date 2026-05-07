@@ -1,17 +1,14 @@
 <div class="home-section">
   <div class="home-container fade-lines">
-    <h2><strong>Brady Hawkins</strong></h2>
     <p>Hi! Thanks for stopping by.</p>
     <p>
-      My name is Brady. I am a Canadian software engineer based in the
-      Netherlands, currently working on the financial backend at Keylane BV. I
-      find the complexity interesting, and collaborating with a talented team.
-      My general vibe is Mr. Rogers for your codebase; steady, thoughtful and
-      here to help.
-    </p>
-    <p>
+    I’m Brady, a Canadian software engineer based in the Netherlands. 
+		I currently work on the financials team at Keylane. I enjoy building 
+		products and features that put more control back in users’ hands.
+   </p> 
+		<p>
       If there's anything here that takes your interest, or something I can help
-      you with, it'd be great to connect.
+      you with, it'd be great to connect. brady93hawkins(at)gmail.com
     </p>
   </div>
 
