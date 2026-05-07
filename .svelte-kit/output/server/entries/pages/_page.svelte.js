@@ -6,9 +6,9 @@ const css = {
 };
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
-  return `<div class="home-section svelte-1okvuzv" data-svelte-h="svelte-1tazf3q"><div class="home-container fade-lines svelte-1okvuzv"><p class="svelte-1okvuzv">Hi! Thanks for stopping by.</p> <p class="svelte-1okvuzv">I’m Brady, a Canadian software engineer based in the Netherlands. 
+  return `<div class="home-section svelte-1okvuzv" data-svelte-h="svelte-19egww"><div class="home-container fade-lines svelte-1okvuzv"><p class="svelte-1okvuzv">Hi! Thanks for stopping by.</p> <p class="svelte-1okvuzv">I’m Brady, a Canadian software engineer based in the Netherlands. 
 		I currently work on the financials team at Keylane. I enjoy building 
-		products and features that put more control back in users’ hands</p> <p class="svelte-1okvuzv">If there&#39;s anything here that takes your interest, or something I can help
+		products and features that put more control back in users’ hands.</p> <p class="svelte-1okvuzv">If there&#39;s anything here that takes your interest, or something I can help
       you with, it&#39;d be great to connect. brady93hawkins(at)gmail.com</p></div> <div class="photo-container svelte-1okvuzv"><img src="/photo-me.webp" alt="Photo of Brady" class="home-photo svelte-1okvuzv"></div> </div>`;
 });
 export {
