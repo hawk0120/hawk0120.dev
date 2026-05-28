@@ -9,7 +9,7 @@
   onMount(async () => {
     try {
       const id = $page.params.id;
-      const response = await fetch('https://bsky.social/xrpc/com.atproto.repo.listRecords?repo=did:plc:da6iyhwpub7pnqbj5booh2by&collection=site.standard.document');
+      const response = await fetch('https://eurosky.social/xrpc/com.atproto.repo.listRecords?repo=did:plc:da6iyhwpub7pnqbj5booh2by&collection=site.standard.document');
       const res = await response.json();
       
       const record = res.records.find(r => r.uri === decodeURIComponent(id));
@@ -27,23 +27,41 @@
         description: record.value.description || '',
         publishedAt: record.value.publishedAt,
         pages: record.value.content?.pages?.map(p => {
-          let blocks = p.blocks?.map(b => {
+          let blocks = p.blocks?.reduce((acc, b) => {
+            const blockType = b.block?.$type || '';
+
+            // Handle native AT Protocol list blocks (structured lists with children)
+            if (blockType.endsWith('unorderedList') || blockType.endsWith('orderedList')) {
+              (b.block?.children || []).forEach(c => {
+                const text = c.content?.plaintext || '';
+                if (text.trim()) {
+                  acc.push({
+                    plaintext: '• ' + text.trim(),
+                    type: 'unorderedList',
+                    _nativeListItem: true
+                  });
+                }
+              });
+              return acc;
+            }
+
             const block = {};
             if (b.block?.plaintext) {
               block.plaintext = b.block.plaintext;
               block.type = detectBlockType(b.block.plaintext);
             }
             if (b.block?.image?.ref?.$link) {
-              block.imageUrl = `https://bsky.social/xrpc/com.atproto.sync.getBlob?did=did:plc:da6iyhwpub7pnqbj5booh2by&cid=${b.block.image.ref.$link}`;
+              block.imageUrl = `https://eurosky.social/xrpc/com.atproto.sync.getBlob?did=did:plc:da6iyhwpub7pnqbj5booh2by&cid=${b.block.image.ref.$link}`;
               block.alt = b.block.image.alt || '';
             }
-            return block;
-          }) || [];
+            acc.push(block);
+            return acc;
+          }, []) || [];
 
           // Split text blocks containing "•" into separate list items
           const expandedBlocks = [];
           blocks.forEach(block => {
-            if (block.plaintext && block.plaintext.includes('•')) {
+            if (block.plaintext && block.plaintext.includes('•') && !block._nativeListItem) {
               const parts = block.plaintext.split(/\s*•\s*/).filter(s => s.trim());
               parts.forEach(part => {
                 expandedBlocks.push({

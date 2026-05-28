@@ -1,0 +1,4 @@
+.vercel
+.svelte-kit
+.env*.local
+node_modules

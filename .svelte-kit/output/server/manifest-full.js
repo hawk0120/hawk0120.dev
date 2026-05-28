@@ -10,15 +10,14 @@ return {
 	assets: new Set(["badge.js","favicon.webp","photo-me.webp"]),
 	mimeTypes: {".js":"text/javascript",".webp":"image/webp"},
 	_: {
-		client: {start:"_app/immutable/entry/start.BVhTC-o1.js",app:"_app/immutable/entry/app.BVvfUOPX.js",imports:["_app/immutable/entry/start.BVhTC-o1.js","_app/immutable/chunks/B5vmf-NT.js","_app/immutable/chunks/BD5CU8nl.js","_app/immutable/entry/app.BVvfUOPX.js","_app/immutable/chunks/C1FmrZbK.js","_app/immutable/chunks/BD5CU8nl.js","_app/immutable/chunks/CuF5X48q.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
+		client: {start:"_app/immutable/entry/start.DJfADsvz.js",app:"_app/immutable/entry/app.BWx4pU29.js",imports:["_app/immutable/entry/start.DJfADsvz.js","_app/immutable/chunks/9SS32JM3.js","_app/immutable/chunks/BD5CU8nl.js","_app/immutable/entry/app.BWx4pU29.js","_app/immutable/chunks/C1FmrZbK.js","_app/immutable/chunks/BD5CU8nl.js","_app/immutable/chunks/CuF5X48q.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
 		nodes: [
 			__memo(() => import('./nodes/0.js')),
 			__memo(() => import('./nodes/1.js')),
 			__memo(() => import('./nodes/2.js')),
 			__memo(() => import('./nodes/3.js')),
 			__memo(() => import('./nodes/4.js')),
-			__memo(() => import('./nodes/5.js')),
-			__memo(() => import('./nodes/6.js'))
+			__memo(() => import('./nodes/5.js'))
 		],
 		remotes: {
 			
@@ -46,17 +45,10 @@ return {
 				endpoint: null
 			},
 			{
-				id: "/contact",
-				pattern: /^\/contact\/?$/,
-				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 5 },
-				endpoint: null
-			},
-			{
 				id: "/projects",
 				pattern: /^\/projects\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 6 },
+				page: { layouts: [0,], errors: [1,], leaf: 5 },
 				endpoint: null
 			},
 			{

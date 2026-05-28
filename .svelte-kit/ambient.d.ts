@@ -42,7 +42,6 @@ declare module '$env/static/private' {
 	export const LESSOPEN: string;
 	export const USER: string;
 	export const npm_config_user_agent: string;
-	export const AGENT: string;
 	export const XDG_SEAT: string;
 	export const STARSHIP_SHELL: string;
 	export const SSH_AGENT_PID: string;
@@ -71,8 +70,8 @@ declare module '$env/static/private' {
 	export const LOGNAME: string;
 	export const ALACRITTY_SOCKET: string;
 	export const WINDOWID: string;
-	export const _: string;
 	export const SDKMAN_CANDIDATES_API: string;
+	export const _: string;
 	export const npm_config_prefix: string;
 	export const npm_config_npm_version: string;
 	export const XDG_SESSION_CLASS: string;
@@ -82,7 +81,6 @@ declare module '$env/static/private' {
 	export const ALACRITTY_LOG: string;
 	export const npm_config_cache: string;
 	export const WINDOWPATH: string;
-	export const OPENCODE: string;
 	export const npm_config_node_gyp: string;
 	export const PATH: string;
 	export const SDKMAN_CANDIDATES_DIR: string;
@@ -92,7 +90,6 @@ declare module '$env/static/private' {
 	export const SDKMAN_BROKER_API: string;
 	export const XDG_RUNTIME_DIR: string;
 	export const DISPLAY: string;
-	export const OPENCODE_PID: string;
 	export const LANG: string;
 	export const XDG_CURRENT_DESKTOP: string;
 	export const XMODIFIERS: string;
@@ -219,7 +216,6 @@ declare module '$env/dynamic/private' {
 		LESSOPEN: string;
 		USER: string;
 		npm_config_user_agent: string;
-		AGENT: string;
 		XDG_SEAT: string;
 		STARSHIP_SHELL: string;
 		SSH_AGENT_PID: string;
@@ -248,8 +244,8 @@ declare module '$env/dynamic/private' {
 		LOGNAME: string;
 		ALACRITTY_SOCKET: string;
 		WINDOWID: string;
-		_: string;
 		SDKMAN_CANDIDATES_API: string;
+		_: string;
 		npm_config_prefix: string;
 		npm_config_npm_version: string;
 		XDG_SESSION_CLASS: string;
@@ -259,7 +255,6 @@ declare module '$env/dynamic/private' {
 		ALACRITTY_LOG: string;
 		npm_config_cache: string;
 		WINDOWPATH: string;
-		OPENCODE: string;
 		npm_config_node_gyp: string;
 		PATH: string;
 		SDKMAN_CANDIDATES_DIR: string;
@@ -269,7 +264,6 @@ declare module '$env/dynamic/private' {
 		SDKMAN_BROKER_API: string;
 		XDG_RUNTIME_DIR: string;
 		DISPLAY: string;
-		OPENCODE_PID: string;
 		LANG: string;
 		XDG_CURRENT_DESKTOP: string;
 		XMODIFIERS: string;

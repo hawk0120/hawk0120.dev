@@ -18,7 +18,6 @@
   <div class="header-right">
     <a href="/" class:active={$page.url.pathname === '/'}>home</a>
     <a href="/blog" class:active={$page.url.pathname.startsWith('/blog')}>writing</a>
-    <a href="/contact" class:active={$page.url.pathname.startsWith('/contact')}>contact</a>
     <button class="icon-btn" on:click={toggleTheme} aria-label="Toggle dark mode">
       {#if $theme === 'dark'}
         <i class="fa-solid fa-campground"></i>
