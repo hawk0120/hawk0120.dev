@@ -1,10 +1,13 @@
 <script>
-  import CarbonBadge from 'svelte-carbonbadge';
   import { theme } from '$lib/stores/theme';
   import { onMount } from 'svelte';
 
   onMount(() => {
-    // Force badge re-render on theme change
+    const script = document.createElement('script');
+    script.src = '/badge.js';
+    script.async = true;
+    document.body.appendChild(script);
+
     const observer = new MutationObserver(() => {
       const badge = document.getElementById('wcb');
       if (badge) {
@@ -23,131 +26,120 @@
 
 <footer>
   <div class="footer-content">
-    <div class="carbon-wrapper">
-      <CarbonBadge dark={$theme === 'dark'} />
-    </div>
-    <div class="icon-container">
-      <a href="https://www.linkedin.com/in/brady-hawkins">
-        <i class="fab fa-linkedin fa-2x"></i>
-      </a>
-      <a href="https://github.com/hawk0120">
-        <i class="fab fa-github fa-2x"></i>
-      </a>
-      <a href="/rss.xml" aria-label="RSS feed">
-        <i class="fa-solid fa-rss fa-2x"></i>
-      </a>
-      <a href="https://bsky.app/profile/bradyhawkins.dev" class="bluesky-link" aria-label="Bluesky">
-        <svg viewBox="0 0 600 530" width="28" height="25" xmlns="http://www.w3.org/2000/svg">
+    <div id="wcb" class="carbonbadge wcb-d"></div>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/brady-hawkins" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> linkedin</a>
+      <a href="https://github.com/hawk0120" target="_blank" rel="noopener"><i class="fab fa-github"></i> github</a>
+      <a href="https://bsky.app/profile/bradyhawkins.dev" target="_blank" rel="noopener">
+        <svg viewBox="0 0 600 530" width="14" height="12" xmlns="http://www.w3.org/2000/svg">
           <path d="m135.72 44.03c66.496 49.921 138.02 151.14 164.28 205.46 26.262-54.316 97.782-155.54 164.28-205.46 47.98-36.021 125.72-63.892 125.72 24.795 0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.3797-3.6904-10.832-3.7077-7.8964-0.0174-2.9357-1.1937 0.51669-3.7077 7.8964-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.4491-163.25-81.433-5.9562-21.282-16.111-152.36-16.111-170.07 0-88.687 77.742-60.816 125.72-24.795z" fill="currentColor"/>
         </svg>
+        bsky
       </a>
+      <a href="/rss.xml"><i class="fa-solid fa-rss"></i> rss</a>
     </div>
   </div>
 </footer>
 
 <style>
   footer {
-    padding: 1rem 2rem;
-    background-color: var(--footer-bg);
+    padding: 2rem;
+    font-size: 0.85rem;
     color: var(--footer-text);
-    font-size: 0.9rem;
-    margin-top: auto;
+    max-width: 720px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 
-  .carbon-wrapper {
-    display: flex;
-    align-items: center;
-  }
-
-  .carbon-wrapper :global(#wcb.carbonbadge) {
+  #wcb.carbonbadge {
     --b1: var(--footer-text) !important;
-    --b2: var(--accent-color) !important;
+    --b2: var(--accent) !important;
     background: transparent !important;
   }
 
-  .carbon-wrapper :global(#wcb.carbonbadge.wcb-d) {
+  #wcb.carbonbadge.wcb-d {
     --b1: #e0e0e0 !important;
-    --b2: var(--accent-color) !important;
+    --b2: var(--accent) !important;
   }
 
-  .carbon-wrapper :global(#wcb.carbonbadge:not(.wcb-d)) {
-    --b1: #1a1a1a !important;
-    --b2: var(--accent-color) !important;
+  #wcb.carbonbadge:not(.wcb-d) {
+    --b1: #2d2d2d !important;
+    --b2: var(--accent) !important;
   }
 
-  .carbon-wrapper :global(#wcb a) {
+  #wcb a {
     background: transparent !important;
   }
 
-  .carbon-wrapper :global(#wcb #wcb_g) {
-    background: transparent !important;
-    border: none !important;
-  }
-
-  .carbon-wrapper :global(#wcb #wcb_a) {
+  #wcb #wcb_g {
     background: transparent !important;
     border: none !important;
   }
 
-  .carbon-wrapper :global(.carbonbadge),
-  .carbon-wrapper :global(.wcb),
-  .carbon-wrapper :global(#wcb) {
+  #wcb #wcb_a {
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .carbonbadge,
+  .wcb,
+  #wcb {
     background: transparent !important;
     background-color: transparent !important;
     --wcb-bg: transparent !important;
   }
 
-  .carbon-wrapper :global(.carbonbadge.wcb-d),
-  .carbon-wrapper :global(.wcb-d) {
+  .carbonbadge.wcb-d,
+  .wcb-d {
     color: #e0e0e0 !important;
   }
 
-  .carbon-wrapper :global(a) {
+  #wcb.carbonbadge a {
     color: var(--footer-text) !important;
     text-decoration: none !important;
     background: transparent !important;
   }
 
-  .carbon-wrapper :global(#wcb.carbonbadge.wcb-d a) {
+  #wcb.carbonbadge.wcb-d a {
     color: #e0e0e0 !important;
   }
 
-  :global([data-theme="light"]) .carbon-wrapper :global(#wcb.carbonbadge) {
-    color: #1a1a1a !important;
+  :global([data-theme="light"]) #wcb.carbonbadge {
+    color: #2d2d2d !important;
     background: transparent !important;
   }
 
-  :global([data-theme="light"]) .carbon-wrapper :global(#wcb.carbonbadge a) {
-    color: #1a1a1a !important;
+  :global([data-theme="light"]) #wcb.carbonbadge a {
+    color: #2d2d2d !important;
   }
 
-  .icon-container {
+  .links {
     display: flex;
-    gap: 1.5rem;
+    gap: 0.75rem;
+    align-items: center;
   }
 
-  .icon-container a {
+  .links a {
     color: var(--footer-text);
     text-decoration: none;
-    transition: opacity 0.2s;
+    transition: color 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
   }
 
-  .icon-container a:hover {
-    opacity: 0.8;
-  }
-
-  footer a {
-    color: var(--footer-text);
-    text-decoration: underline;
-  }
-
-  footer a:hover {
-    opacity: 0.8;
+  .links a:hover {
+    color: var(--accent);
   }
 </style>

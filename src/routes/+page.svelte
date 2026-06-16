@@ -1,44 +1,46 @@
-<div class="home-section">
-  <div class="home-container fade-lines">
+<script>
+  import { projects } from '$lib/stores/projects';
+</script>
+
+<div class="home fade-in">
+  <div class="intro">
+    <p class="tagline">Software engineer. Tinkerer. Canadian in the Netherlands.</p>
     <p>Hi! Thanks for stopping by.</p>
     <p>
-    I’m Brady, a Canadian software engineer based in the Netherlands. 
-		I am currently working on the financials team at Keylane. I enjoy building 
-		products and features that put more control back in users’ hands.
-   </p> 
-		<p>
-      If there's anything here that takes your interest, or something I can help
-      you with, it'd be great to connect. brady93hawkins(at)gmail.com
+      I'm Brady, a Canadian software engineer based in the Netherlands.
+      I work on the financials team at Keylane, building products that
+      put more control back in users' hands.
+    </p>
+    <p class="email">
+      <a href="mailto:brady93hawkins@gmail.com">brady93hawkins&#64;gmail.com</a>
     </p>
   </div>
+  <div class="photo-wrapper">
+    <img src="/photo-me.webp" alt="Photo of Brady" class="photo" />
+  </div>
+</div>
 
-  <div class="photo-container">
-    <img
-      src="/photo-me.webp"
-      alt="Photo of Brady"
-      class="home-photo"
-    />
+<div class="projects-section">
+  <h2>Projects</h2>
+  <div class="projects-list">
+    {#each projects as project}
+      <div class="project">
+        <a href={project.url} target="_blank" rel="noopener">{project.name}</a>
+        <p>{project.description}</p>
+      </div>
+    {/each}
   </div>
 </div>
 
 <style>
-  .home-container {
-    margin: auto;
-    max-width: 800px;
-    width: 90%;
-    z-index: 10;
-  }
-
-  .home-section {
+  .home {
     display: flex;
-    flex-direction: row;
+    gap: 2.5rem;
     align-items: flex-start;
-    gap: 2em;
-    justify-content: center;
-    flex-wrap: wrap;
+    margin-bottom: 3rem;
   }
 
-  .fade-lines > * {
+  .fade-in > * {
     opacity: 0;
     transform: translateY(10px);
     animation: fadeIn 1s forwards;
@@ -51,62 +53,91 @@
     }
   }
 
-  .fade-lines > *:nth-child(1) { animation-delay: 0s; }
-  .fade-lines > *:nth-child(2) { animation-delay: 0.2s; }
-  .fade-lines > *:nth-child(3) { animation-delay: 0.4s; }
-  .fade-lines > *:nth-child(4) { animation-delay: 0.6s; }
-  .fade-lines > *:nth-child(5) { animation-delay: 0.8s; }
-  .fade-lines > *:nth-child(6) { animation-delay: 1.0s; }
+  .fade-in > *:nth-child(1) { animation-delay: 0s; }
+  .fade-in > *:nth-child(2) { animation-delay: 0.2s; }
 
-  .photo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    padding-top: 3em;
+  .intro {
+    flex: 1;
   }
 
-  .home-photo {
-    max-width: 100%;
-    width: 350px;
+  .intro p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0 0 0.75rem;
+  }
+
+  .tagline {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .email a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .email a:hover {
+    color: var(--accent-hover);
+  }
+
+  .photo-wrapper {
+    flex-shrink: 0;
+    padding-top: 0.5rem;
+  }
+
+  .photo {
+    width: 160px;
     height: auto;
-    border-radius: 15px;
+    border-radius: 12px;
+  }
+
+  .projects-section {
+    margin-top: 1rem;
   }
 
   h2 {
-    font-family: Lora, serif;
-    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    margin: 0 0 1rem;
+    font-weight: 600;
   }
 
-  p {
-    margin-bottom: 1rem;
+  .project {
+    margin-bottom: 1.25rem;
+  }
+
+  .project a {
+    font-size: 1rem;
+    font-weight: 500;
     color: var(--text-color);
-    line-height: 2;
-    letter-spacing: 3px;
+    text-decoration: none;
+    transition: color 0.15s;
   }
 
-  @media (max-width: 1024px) {
-    .home-container {
-      width: 95%;
-    }
-
-    .home-photo {
-      width: 250px;
-    }
+  .project a:hover {
+    color: var(--accent);
   }
 
-  @media (max-width: 767px) {
-    .home-container {
-      width: 90%;
+  .project p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0.25rem 0 0;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 580px) {
+    .home {
+      flex-direction: column-reverse;
+      align-items: center;
+      text-align: center;
     }
 
-    .photo-container {
-      flex-direction: column;
-      padding-top: 2em;
-    }
-
-    .home-photo {
-      width: 80%;
+    .photo {
+      width: 140px;
     }
   }
 </style>

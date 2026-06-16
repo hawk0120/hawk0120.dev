@@ -26,11 +26,11 @@
         author: 'Brady Hawkins',
         description: record.value.description || '',
         publishedAt: record.value.publishedAt,
+        readingTime: calcReadingTime(record.value.content?.pages || []),
         pages: record.value.content?.pages?.map(p => {
           let blocks = p.blocks?.reduce((acc, b) => {
             const blockType = b.block?.$type || '';
 
-            // Handle native AT Protocol list blocks (structured lists with children)
             if (blockType.endsWith('unorderedList') || blockType.endsWith('orderedList')) {
               (b.block?.children || []).forEach(c => {
                 const text = c.content?.plaintext || '';
@@ -58,7 +58,6 @@
             return acc;
           }, []) || [];
 
-          // Split text blocks containing "•" into separate list items
           const expandedBlocks = [];
           blocks.forEach(block => {
             if (block.plaintext && block.plaintext.includes('•') && !block._nativeListItem) {
@@ -75,7 +74,6 @@
           });
           blocks = expandedBlocks;
 
-          // Group consecutive list items
           const groupedBlocks = [];
           let currentList = null;
 
@@ -127,18 +125,31 @@
       day: 'numeric'
     });
   }
+
+  function calcReadingTime(pages) {
+    let words = 0;
+    for (const p of pages) {
+      for (const b of p.blocks || []) {
+        if (b.block?.plaintext) {
+          words += b.block.plaintext.split(/\s+/).filter(Boolean).length;
+        }
+      }
+    }
+    const mins = Math.ceil(words / 200);
+    return Math.max(1, mins);
+  }
 </script>
 
 {#if loading}
-  <div class="loading">Loading post...</div>
+  <p class="muted">Loading...</p>
 {:else if error}
-  <div class="error">Error: {error}</div>
+  <p class="error">Error: {error}</p>
 {:else if document}
-  <article class="blog-post">
+  <article>
     <header>
       <h1>{document.title}</h1>
       <p class="meta">
-        By {document.author} | {formatDate(document.publishedAt)}
+        {formatDate(document.publishedAt)} &middot; {document.readingTime} min read
       </p>
       {#if document.description}
         <p class="description">{document.description}</p>
@@ -182,46 +193,65 @@
       {/each}
     {/each}
   </article>
+
+  <a href="#top" class="back-to-top">&uarr; back to top</a>
 {/if}
 
+<svelte:head>
+  <title>{document ? document.title + ' — Brady Hawkins' : 'Brady Hawkins'}</title>
+  <meta property="og:title" content={document ? document.title : 'Brady Hawkins'} />
+  <meta property="og:description" content={document ? (document.description || 'Blog post by Brady Hawkins') : 'Software engineer. Tinkerer. Canadian in the Netherlands.'} />
+  <meta name="twitter:title" content={document ? document.title : 'Brady Hawkins'} />
+  <meta name="twitter:description" content={document ? (document.description || 'Blog post by Brady Hawkins') : 'Software engineer. Tinkerer. Canadian in the Netherlands.'} />
+</svelte:head>
+
 <style>
-  .loading, .error {
-    text-align: center;
-    padding: 2rem;
-    color: var(--text-color);
+  .muted {
+    color: var(--text-muted);
   }
 
   .error {
     color: #ff5252;
   }
 
-  .blog-post {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
+  article header {
+    margin-bottom: 2.5rem;
   }
 
-  header {
-    margin-bottom: 2rem;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 1rem;
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0 0 0.5rem;
+    color: var(--text-color);
+    letter-spacing: -0.02em;
   }
 
-  h1, h2, h3 {
-	  text-decoration: none !important; 
+  h2 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 2rem 0 0.75rem;
+    color: var(--text-color);
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.5rem;
     color: var(--text-color);
   }
 
   .meta {
-    color: var(--text-color);
-    opacity: 0.7;
-    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin: 0;
   }
 
   .description {
-    color: var(--text-color);
-    opacity: 0.8;
+    color: var(--text-muted);
     font-style: italic;
+    margin-top: 1rem;
+    line-height: 1.5;
   }
 
   p {
@@ -231,31 +261,37 @@
   }
 
   pre {
-    background-color: var(--header-bg);
+    background-color: rgba(0,0,0,0.05);
     padding: 1rem;
-    border-radius: 4px;
+    border-radius: 6px;
     overflow-x: auto;
+    font-size: 0.9rem;
+  }
+
+  :global([data-theme="dark"]) pre {
+    background-color: rgba(255,255,255,0.05);
   }
 
   blockquote {
-    border-left: 4px solid var(--accent-color);
+    border-left: 3px solid var(--accent);
     padding-left: 1rem;
-    margin: 1rem 0;
-    color: var(--text-color);
-    opacity: 0.8;
+    margin: 1.5rem 0;
+    color: var(--text-muted);
+    line-height: 1.6;
   }
 
   ul, ol {
-    padding-left: 2rem;
+    padding-left: 1.25rem;
     color: var(--text-color);
+    line-height: 1.6;
   }
 
   li {
-    margin: 0.5rem 0;
+    margin: 0.3rem 0;
   }
 
   figure {
-    margin: 1rem 0;
+    margin: 1.5rem 0;
   }
 
   img {
@@ -266,9 +302,30 @@
 
   figcaption {
     text-align: center;
-    color: var(--text-color);
-    opacity: 0.7;
-    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
     margin-top: 0.5rem;
+  }
+
+  a {
+    color: var(--accent);
+  }
+
+  a:hover {
+    color: var(--accent-hover);
+  }
+
+  .back-to-top {
+    display: block;
+    margin-top: 3rem;
+    text-align: center;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.15s;
+  }
+
+  .back-to-top:hover {
+    color: var(--accent);
   }
 </style>

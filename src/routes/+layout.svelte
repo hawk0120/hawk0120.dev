@@ -4,6 +4,9 @@
   import Water from '$lib/components/Water.svelte';
   import { theme } from '$lib/stores/theme';
   import { onMount } from 'svelte';
+  import { page } from '$app/stores';
+
+  $: ogUrl = `https://bradyhawkins.dev${$page.url.pathname}`;
 
   onMount(() => {
     const stored = localStorage.getItem('theme') || 'dark';
@@ -25,54 +28,49 @@
     <slot />
   </main>
 <Footer />
+  <a href="#top" class="back-to-top">&uarr; top</a>
 </div>
 
+<svelte:head>
+  <meta property="og:site_name" content="Brady Hawkins" />
+  <meta property="og:url" content={ogUrl} />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Brady Hawkins" />
+  <meta property="og:description" content="Software engineer. Tinkerer. Canadian in the Netherlands." />
+  <meta property="og:image" content="https://bradyhawkins.dev/photo-me.webp" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Brady Hawkins" />
+  <meta name="twitter:description" content="Software engineer. Tinkerer. Canadian in the Netherlands." />
+  <meta name="twitter:image" content="https://bradyhawkins.dev/photo-me.webp" />
+</svelte:head>
+
 <style>
-  :global(body) {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  :global(#svelte) {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
   .layout {
     display: flex;
     flex-direction: column;
     flex: 1;
   }
 
-  :global([data-theme="dark"]) {
-    --bg-color: #0a0a0a;
-    --text-color: #e0e0e0;
-    --header-bg: transparent;
-    --header-text: #e0e0e0;
-    --footer-bg: transparent;
-    --footer-text: #e0e0e0;
-    --border-color: #333;
-    --accent-color: #64b5f6;
-  }
-
-  :global([data-theme="light"]) {
-    --bg-color: #ffffff;
-    --text-color: #1a1a1a;
-    --header-bg: transparent;
-    --header-text: #1a1a1a;
-    --footer-bg: transparent;
-    --footer-text: #1a1a1a;
-    --border-color: #ddd;
-    --accent-color: #1976d2;
-  }
-
   main {
     flex: 1;
-    padding: 2rem;
-    max-width: 1200px;
+    padding: 2rem 2rem;
+    max-width: 720px;
     margin: 0 auto;
     width: 100%;
+    box-sizing: border-box;
+  }
+
+  .back-to-top {
+    display: block;
+    text-align: center;
+    padding: 0 2rem 3rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.15s;
+  }
+
+  .back-to-top:hover {
+    color: var(--accent);
   }
 </style>

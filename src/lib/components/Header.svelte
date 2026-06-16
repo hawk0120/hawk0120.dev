@@ -1,101 +1,109 @@
 <script>
   import { theme } from '$lib/stores/theme';
   import { page } from '$app/stores';
-
-  function toggleTheme() {
-    const currentTheme = $theme === 'light' ? 'dark' : 'light';
-    theme.set(currentTheme);
-    document.documentElement.setAttribute('data-theme', currentTheme);
-  }
 </script>
 
-<header class="header">
-  <div class="photo-container">
-    <a href="/">
-      <img src="/favicon.webp" alt="Brady Hawkins" width="40" height="40" class="hero-photo" />
-    </a>
-  </div>
-  <div class="header-right">
+<header>
+  <a href="/" class="logo">
+    <img src="/favicon.webp" alt="Brady Hawkins" width="28" height="28" class="avatar" />
+    <span>Brady Hawkins</span>
+  </a>
+  <nav>
     <a href="/" class:active={$page.url.pathname === '/'}>home</a>
     <a href="/blog" class:active={$page.url.pathname.startsWith('/blog')}>writing</a>
-    <button class="icon-btn" on:click={toggleTheme} aria-label="Toggle dark mode">
+    <a href="/library" class:active={$page.url.pathname.startsWith('/library')}>library</a>
+    <a href="/projects" class:active={$page.url.pathname.startsWith('/projects')}>projects</a>
+    <button class="theme-btn" on:click={theme.toggle} aria-label="Toggle theme">
       {#if $theme === 'dark'}
         <i class="fa-solid fa-campground"></i>
       {:else}
         <i class="fa-solid fa-fire"></i>
       {/if}
     </button>
-  </div>
+  </nav>
 </header>
 
 <style>
-  .header {
+  header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 2rem;
-    background-color: var(--header-bg);
-    color: var(--header-text);
+    padding: 2rem 2rem 0.5rem;
+    max-width: 720px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
     position: relative;
     z-index: 10;
   }
 
-  .photo-container {
+  .logo {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--header-text);
   }
 
-  .hero-photo {
+  .avatar {
     border-radius: 50%;
     object-fit: cover;
   }
 
-  .header-right {
+  .logo span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  nav {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.25rem;
     align-items: center;
   }
 
-  .header-right a {
+  nav a {
     text-decoration: none;
-    color: var(--header-text);
-    font-weight: 500;
-    transition: opacity 0.2s;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: color 0.15s;
   }
 
-  .header-right a:hover {
-    opacity: 0.8;
+  nav a:hover {
+    color: var(--text-color);
   }
 
-  .header-right a.active {
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 2px;
+  nav a.active {
+    color: var(--text-color);
   }
 
-  .icon-btn {
+  nav button {
     background: none;
     border: none;
-    color: var(--header-text);
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.5rem;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    padding: 0.25rem;
     border-radius: 50%;
-    transition: background-color 0.2s;
+    cursor: pointer;
+    transition: color 0.15s, background-color 0.15s;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
   }
 
-  .icon-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  nav button:hover {
+    color: var(--text-color);
+    background-color: rgba(128,128,128,0.1);
   }
 
-  @media (max-width: 640px) {
-    .header {
+  @media (max-width: 580px) {
+    header {
       flex-direction: column;
-      gap: 1rem;
-    }
-
-    .header-right {
-      flex-wrap: wrap;
-      justify-content: center;
+      gap: 0.75rem;
+      padding: 1rem 1.5rem 0.5rem;
     }
   }
 </style>

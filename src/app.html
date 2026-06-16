@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="top">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,34 +12,43 @@
     </script>
     <style>
       :root {
-        --bg-color: #0a0a0a;
-        --text-color: #e0e0e0;
-        --header-bg: transparent;
-        --header-text: #e0e0e0;
-        --footer-bg: transparent;
-        --footer-text: #e0e0e0;
+        --bg-color: #1a1a2e;
+        --text-color: #ddd;
+        --text-muted: #999;
+        --accent: #d4a373;
+        --accent-hover: #e0b98a;
         --border-color: #333;
-        --accent-color: #64b5f6;
+        --header-bg: transparent;
+        --header-text: #ddd;
+        --footer-text: #999;
+        --font-serif: Georgia, 'Times New Roman', serif;
+        --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       }
       html[data-theme="light"] {
-        --bg-color: #ffffff;
-        --text-color: #1a1a1a;
-        --header-bg: transparent;
-        --header-text: #1a1a1a;
-        --footer-bg: transparent;
-        --footer-text: #1a1a1a;
-        --border-color: #ddd;
-        --accent-color: #1976d2;
+        --bg-color: #faf9f6;
+        --text-color: #2d2d2d;
+        --text-muted: #888;
+        --accent: #c17f4e;
+        --accent-hover: #a86a3d;
+        --border-color: #e0ddd5;
+        --header-text: #2d2d2d;
+        --footer-text: #888;
       }
       body {
         margin: 0;
         padding: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        font-family: Georgia, 'Times New Roman', serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         min-height: 100vh;
         display: flex;
         flex-direction: column;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      ::selection {
+        background-color: var(--accent);
+        color: #fff;
       }
     </style>
     %sveltekit.head%

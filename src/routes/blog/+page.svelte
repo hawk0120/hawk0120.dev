@@ -34,58 +34,70 @@
   }
 </script>
 
+<h2>Writing</h2>
+
 {#if loading}
-  <div class="loading">Loading posts...</div>
+  <p class="muted">Loading posts...</p>
 {:else if error}
-  <div class="error">Error loading posts: {error}</div>
+  <p class="error">Error loading posts: {error}</p>
 {:else}
-  <ul class="blog-post">
+  <ul class="posts">
     {#each documents as doc}
       <li>
         <a href="/blog/{encodeURIComponent(doc.id)}">{doc.title}</a>
-        <small>| {formatDate(doc.publishedAt)}</small>
+        <span class="date">{formatDate(doc.publishedAt)}</span>
       </li>
     {/each}
   </ul>
 {/if}
 
 <style>
-  .loading, .error {
-    text-align: center;
-    padding: 2rem;
-    color: var(--text-color);
+  h2 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    margin: 0 0 1.5rem;
+    font-weight: 600;
+  }
+
+  .muted {
+    color: var(--text-muted);
   }
 
   .error {
     color: #ff5252;
   }
 
-  .blog-post {
+  .posts {
     list-style: none;
     padding: 0;
-    max-width: 800px;
-    margin: 0 auto;
+    margin: 0;
   }
 
-  .blog-post li {
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border-color);
+  .posts li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.75rem 0;
+    gap: 1rem;
   }
 
-  .blog-post li:last-child {
-    border-bottom: none;
-  }
-
-  .blog-post a {
+  .posts a {
     color: var(--text-color);
     text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 500;
+    font-weight: 400;
+    transition: color 0.15s;
   }
 
-  .blog-post small {
-    color: var(--text-color);
-    opacity: 0.7;
-    margin-left: 0.5rem;
+  .posts a:hover {
+    color: var(--accent);
+  }
+
+  .date {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 </style>

@@ -12,6 +12,8 @@
   let nightFadeStart = 0;
   let ripples = [];
   const MAX_RIPPLES = 10;
+  let lastMouseRipple = 0;
+  let lastMousePos = { x: 0, y: 0 };
 
   onMount(() => {
     initWebGL();
@@ -38,6 +40,49 @@
     if (ripples.length > MAX_RIPPLES) {
       ripples = ripples.slice(1);
     }
+  }
+
+  function handleMouseMove(event) {
+    const now = performance.now();
+    if (now - lastMouseRipple < 80) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width;
+    const y = (event.clientY - rect.top) / rect.height;
+
+    const dx = x - lastMousePos.x;
+    const dy = y - lastMousePos.y;
+    if (Math.abs(dx) < 0.005 && Math.abs(dy) < 0.005) return;
+
+    lastMousePos = { x, y };
+    lastMouseRipple = now;
+
+    const time = (now - startTime) / 1000;
+    const worldX = x * 40 - 20;
+    const worldZ = 10 + y * 20;
+
+    const speed = Math.sqrt(dx * dx + dy * dy);
+    const amplitude = 0.06 + Math.min(speed * 0.3, 0.08);
+
+    ripples = [...ripples, { x: worldX, z: worldZ, time, amplitude }];
+    if (ripples.length > MAX_RIPPLES) {
+      ripples = ripples.slice(1);
+    }
+  }
+
+  function handleTouchStart(event) {
+    const touch = event.touches[0];
+    const rect = canvas.getBoundingClientRect();
+    lastMousePos = {
+      x: (touch.clientX - rect.left) / rect.width,
+      y: (touch.clientY - rect.top) / rect.height
+    };
+  }
+
+  function handleTouchMove(event) {
+    event.preventDefault();
+    const touch = event.touches[0];
+    handleMouseMove(touch);
   }
 
   function initWebGL() {
@@ -446,7 +491,7 @@
   }
 </script>
 
-<canvas bind:this={canvas} on:click={handleClick}></canvas>
+<canvas bind:this={canvas} on:click={handleClick} on:mousemove={handleMouseMove} on:touchstart={handleTouchStart} on:touchmove|nonpassive={handleTouchMove}></canvas>
 
 <style>
   canvas {
