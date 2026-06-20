@@ -1,17 +1,13 @@
 <script>
-  import { projects } from '$lib/stores/projects';
 </script>
 
 <div class="home fade-in">
   <div class="intro">
-    <p class="tagline">Software developer building AI agents, developer tools, and self-hosted systems.</p>
-    <p>Hi! Thanks for stopping by.</p>
+    <p class="tagline">Software engineer exploring memory, trust, and long-term AI systems.</p>
     <p>
       I'm Brady, a Canadian software engineer based in the Netherlands.
-      I work on the financials team at Keylane, building products that
-      put more control back in users' hands. I focus on Kotlin, Java,
-      and TypeScript, and spend my free time exploring local LLMs,
-      homelab infrastructure, and practical agentic AI.
+      I work on financial systems at Keylane and build AI systems that
+      remember, reflect, and earn trust over time.
     </p>
     <p class="email">
       <a href="mailto:brady93hawkins@gmail.com">brady93hawkins&#64;gmail.com</a>
@@ -22,16 +18,31 @@
   </div>
 </div>
 
-<div class="projects-section">
-  <h2>Projects</h2>
-  <div class="projects-list">
-    {#each projects as project}
-      <div class="project">
-        <a href={project.url} target="_blank" rel="noopener">{project.name}</a>
-        <p>{project.description}</p>
-      </div>
-    {/each}
-  </div>
+<div class="section">
+  <h2>Current Work</h2>
+  <ul class="work-list">
+    <li><strong>Watney4</strong> &mdash; Persistent AI assistant exploring memory architectures, tool use, and long-term human-AI interaction. Built in Kotlin, self-hosted.</li>
+    <li><strong>Research Program</strong> &mdash; Reading toward 100 papers across CHI, CSCW, IUI, and FAccT. Synthesizing findings on memory, trust, and transparency in AI systems.</li>
+    <li><strong>Reading Program</strong> &mdash; Working through books on HCI, AI systems, and decentralized technology.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Current Questions</h2>
+  <ul class="questions">
+    <li>What should AI remember?</li>
+    <li>When should memories be surfaced?</li>
+    <li>Does transparency increase trust?</li>
+    <li>How should long-term assistants behave?</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Writing</h2>
+  <p>
+    I write about AI systems, memory architecture, human-computer interaction, and what happens when software remembers.
+    <a href="/blog">Read my posts &rarr;</a>
+  </p>
 </div>
 
 <style>
@@ -39,7 +50,7 @@
     display: flex;
     gap: 2.5rem;
     align-items: flex-start;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   .fade-in > * {
@@ -95,8 +106,8 @@
     border-radius: 12px;
   }
 
-  .projects-section {
-    margin-top: 1rem;
+  .section {
+    margin-bottom: 2rem;
   }
 
   h2 {
@@ -104,31 +115,61 @@
     text-transform: uppercase;
     letter-spacing: 0.03em;
     color: var(--text-muted);
-    margin: 0 0 1rem;
+    margin: 0 0 0.75rem;
     font-weight: 600;
   }
 
-  .project {
-    margin-bottom: 1.25rem;
+  .work-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
-  .project a {
-    font-size: 1rem;
-    font-weight: 500;
+  .work-list li {
+    font-size: 0.95rem;
+    line-height: 1.6;
     color: var(--text-color);
-    text-decoration: none;
-    transition: color 0.15s;
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--border-color);
   }
 
-  .project a:hover {
+  .work-list strong {
+    font-weight: 600;
+  }
+
+  .questions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .questions li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .questions li::before {
+    content: "? ";
     color: var(--accent);
   }
 
-  .project p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin: 0.25rem 0 0;
-    line-height: 1.5;
+  .section p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+  }
+
+  .section a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .section a:hover {
+    color: var(--accent-hover);
   }
 
   @media (max-width: 580px) {

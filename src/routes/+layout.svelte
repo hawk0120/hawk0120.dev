@@ -36,11 +36,11 @@
   <meta property="og:url" content={ogUrl} />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Brady Hawkins" />
-  <meta property="og:description" content="Software engineer. Tinkerer. Canadian in the Netherlands." />
+  <meta property="og:description" content="Software engineer exploring memory, trust, and long-term AI systems." />
   <meta property="og:image" content="https://bradyhawkins.dev/photo-me.webp" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Brady Hawkins" />
-  <meta name="twitter:description" content="Software engineer. Tinkerer. Canadian in the Netherlands." />
+  <meta name="twitter:description" content="Software engineer exploring memory, trust, and long-term AI systems." />
   <meta name="twitter:image" content="https://bradyhawkins.dev/photo-me.webp" />
 </svelte:head>
 
