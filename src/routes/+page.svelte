@@ -4,12 +4,14 @@
 
 <div class="home fade-in">
   <div class="intro">
-    <p class="tagline">Software engineer. Tinkerer. Canadian in the Netherlands.</p>
+    <p class="tagline">Software developer building AI agents, developer tools, and self-hosted systems.</p>
     <p>Hi! Thanks for stopping by.</p>
     <p>
       I'm Brady, a Canadian software engineer based in the Netherlands.
       I work on the financials team at Keylane, building products that
-      put more control back in users' hands.
+      put more control back in users' hands. I focus on Kotlin, Java,
+      and TypeScript, and spend my free time exploring local LLMs,
+      homelab infrastructure, and practical agentic AI.
     </p>
     <p class="email">
       <a href="mailto:brady93hawkins@gmail.com">brady93hawkins&#64;gmail.com</a>
