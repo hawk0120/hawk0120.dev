@@ -10,11 +10,9 @@
   </a>
   <nav>
     <a href="/" class:active={$page.url.pathname === '/'}>home</a>
-    <a href="/research" class:active={$page.url.pathname.startsWith('/research')}>research</a>
     <a href="/blog" class:active={$page.url.pathname.startsWith('/blog')}>writing</a>
-    <a href="/projects" class:active={$page.url.pathname.startsWith('/projects')}>projects</a>
     <a href="/library" class:active={$page.url.pathname.startsWith('/library')}>library</a>
-    <a href="/now" class:active={$page.url.pathname.startsWith('/now')}>now</a>
+    <a href="/projects" class:active={$page.url.pathname.startsWith('/projects')}>projects</a>
     <button class="theme-btn" on:click={theme.toggle} aria-label="Toggle theme">
       {#if $theme === 'dark'}
         <i class="fa-solid fa-campground"></i>
@@ -60,7 +58,7 @@
 
   nav {
     display: flex;
-    gap: 1rem;
+    gap: 1.25rem;
     align-items: center;
   }
 
@@ -106,12 +104,6 @@
       flex-direction: column;
       gap: 0.75rem;
       padding: 1rem 1.5rem 0.5rem;
-    }
-
-    nav {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.75rem;
     }
   }
 </style>
