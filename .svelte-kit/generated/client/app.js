@@ -1,3 +1,11 @@
+// in dev, this makes Vite inject its client as this module's first dependency,
+// so that global constant replacements are installed before any other module
+// (including user hooks) evaluates. In build it's inert.
+import.meta.hot;
+
+
+
+
 export { matchers } from './matchers.js';
 
 export const nodes = [
@@ -6,7 +14,8 @@ export const nodes = [
 	() => import('./nodes/2'),
 	() => import('./nodes/3'),
 	() => import('./nodes/4'),
-	() => import('./nodes/5')
+	() => import('./nodes/5'),
+	() => import('./nodes/6')
 ];
 
 export const server_loads = [];
@@ -15,7 +24,8 @@ export const dictionary = {
 		"/": [2],
 		"/blog": [3],
 		"/blog/[id]": [4],
-		"/projects": [5]
+		"/library": [5],
+		"/projects": [6]
 	};
 
 export const hooks = {
