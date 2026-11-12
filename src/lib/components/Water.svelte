@@ -7,7 +7,7 @@
   let animationId = 0;
   let startTime = 0;
   let program;
-  let nightBlend = typeof localStorage !== 'undefined' && (localStorage.getItem('theme') || 'dark') === 'dark' ? 1.0 : 0.0;
+  let nightBlend = typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme') === 'dark' ? 1.0 : 0.0;
   let targetNight = nightBlend;
   let nightFadeStart = 0;
   let ripples = [];
