@@ -41,6 +41,8 @@
     width: 100%;
     box-sizing: border-box;
     color: var(--footer-text);
+    position: relative;
+    z-index: 1;
   }
 
   .footer-inner {

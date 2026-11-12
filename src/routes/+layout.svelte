@@ -16,6 +16,7 @@
 
 <div class="layout">
 <Water />
+<div class="fog" />
 <Sidebar />
   <main>
     <div class="content">
@@ -45,12 +46,35 @@
     flex: 1;
   }
 
+  .fog {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      var(--fog-top) 0%,
+      var(--fog-mid) 48%,
+      var(--fog-bottom) 100%
+    );
+    backdrop-filter: blur(var(--fog-blur)) saturate(1.05);
+    -webkit-backdrop-filter: blur(var(--fog-blur)) saturate(1.05);
+  }
+
+  @media (max-width: 860px) {
+    .fog {
+      display: none;
+    }
+  }
+
   main {
     flex: 1;
     margin-left: 248px;
     padding: 72px 56px 110px;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
+    z-index: 1;
   }
 
   .content {
