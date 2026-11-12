@@ -1,7 +1,7 @@
 <div class="page-label">01 / Home</div>
 
 <div class="hero fade-in">
-  <h1>I'm Brady, a <em>Canadian</em> software engineer based in the Netherlands.</h1>
+  <h1>I'm Brady, a Canadian software engineer based in the Netherlands.</h1>
   <div class="hero-grid">
     <div class="hero-bio">
       <p>
@@ -81,11 +81,6 @@
     letter-spacing: -0.01em;
     margin: 0 0 40px;
     max-width: 19ch;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--accent);
   }
 
   .hero-grid {
