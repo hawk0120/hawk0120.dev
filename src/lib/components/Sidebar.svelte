@@ -10,7 +10,6 @@
   </a>
   <nav class="main-nav">
     <a href="/" class:active={$page.url.pathname === '/'}>Home</a>
-    <a href="/now" class:active={$page.url.pathname === "/now"}>Now</a>
     <a href="/projects" class:active={$page.url.pathname.startsWith('/projects')}>Projects</a>
     <a href="/blog" class:active={$page.url.pathname.startsWith('/blog')}>Writing</a>
     <a href="/library" class:active={$page.url.pathname.startsWith('/library')}>Library</a>
@@ -32,7 +31,6 @@
   <a class="name" href="/">Brady Hawkins</a>
   <nav>
     <a href="/" class:active={$page.url.pathname === '/'}>home</a>
-    <a href="/now" class:active={$page.url.pathname === "/now"}>now</a>
     <a href="/projects" class:active={$page.url.pathname.startsWith('/projects')}>projects</a>
     <a href="/blog" class:active={$page.url.pathname.startsWith('/blog')}>writing</a>
     <a href="/library" class:active={$page.url.pathname.startsWith('/library')}>library</a>
