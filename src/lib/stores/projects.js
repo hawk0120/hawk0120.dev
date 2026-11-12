@@ -2,50 +2,57 @@ const projects = [
   {
     name: 'Watney4',
     description:
-      'A self-hosted AI assistant built in Kotlin that combines persistent memory, tool execution, voice interactions, and automation workflows. Powered by local and remote language models, Watney4 explores practical agentic AI while maintaining complete ownership of data, infrastructure, and execution.',
+      'A self-hosted AI assistant combining persistent memory, tool execution, voice interaction and automation workflows. Complete ownership of data, infrastructure and execution.',
     url: 'https://github.com/hawk0120/watney4',
-    section: 'Featured',
-  },
-  {
-    name: 'Thomas',
-    description:
-      'The first iteration of what would become Watney4. An experimental AI assistant exploring memory, reflection, and long-term interaction through a Kotlin/Spring Boot architecture. Established the core ideas around persistent memory, tool-based actions, and long-term context that later evolved into more sophisticated implementations.',
-    url: 'https://github.com/hawk0120/Thomas',
+    tag: 'Kotlin',
     section: 'Featured',
   },
   {
     name: 'Turtles',
     description:
-      'A modern terminal file manager written in Kotlin that brings desktop-style interactions to the command line. Features mouse-driven navigation, drag-and-drop operations, visual selection modes, live search, file previews, and GraalVM native compilation for fast startup and minimal runtime overhead.',
+      'A modern terminal file manager with desktop-style interactions: mouse navigation, drag-and-drop, visual selection, live search and file previews. GraalVM native compilation.',
     url: 'https://github.com/hawk0120/turtles',
-    section: 'Featured',
-  },
-  {
-    name: 'clammy',
-    description:
-      'An insurance claims management platform built to explore backend architecture and API design. Supports claim creation, retrieval, and resolution workflows through RESTful services implemented in both Java/Spring Boot and TypeScript/Express, enabling comparison of different backend approaches against the same domain model.',
-    url: 'https://github.com/hawk0120/clammy',
+    tag: 'Kotlin · GraalVM',
     section: 'Featured',
   },
   {
     name: 'ToolRunner',
     description:
-      'A Kotlin framework for building and orchestrating reusable tools and workflows. Designed to provide a strongly typed foundation for automation, agent execution, and developer productivity applications.',
+      'A strongly typed Kotlin framework for building and orchestrating reusable tools and workflows, for automation, agent execution and developer productivity.',
     url: 'https://github.com/hawk0120/ToolRunner',
+    tag: 'Kotlin',
+    section: 'Featured',
+  },
+  {
+    name: 'Thomas',
+    description:
+      'The first iteration of what became Watney4. An experimental AI assistant exploring memory, reflection and long-term interaction via Kotlin/Spring Boot.',
+    url: 'https://github.com/hawk0120/Thomas',
+    tag: 'Kotlin · Spring',
     section: 'Featured',
   },
   {
     name: 'debby',
     description:
-      'A lightweight file-based database engine created as an experiment in simplifying data persistence. Supports read, write, and update operations while storing structured data directly on disk, making it ideal for small projects that prioritize simplicity over traditional database complexity.',
+      'A lightweight file-based database engine, an experiment in simplifying persistence. Structured data stored directly on disk.',
     url: 'https://github.com/hawk0120/debby',
+    tag: 'Java',
+    section: 'Featured',
+  },
+  {
+    name: 'clammy',
+    description:
+      'An insurance claims platform exploring backend architecture: the same domain model in Java/Spring Boot and TypeScript/Express.',
+    url: 'https://github.com/hawk0120/clammy',
+    tag: 'TypeScript · Java',
     section: 'Featured',
   },
   {
     name: 'Weapy',
     description:
-      'A mobile application that tracks and displays real-time pollen levels for trees, grass, weeds, and mold based on the user\'s current location. Built with React Native, featuring automatic location detection, severity indicators, and location-aware environmental reporting.',
+      'A mobile app tracking real-time pollen levels - trees, grass, weeds, mold - based on your location, with severity indicators.',
     url: 'https://www.bradyhawkins.dev/blog/',
+    tag: 'React Native',
     section: 'Featured',
   },
 ];
