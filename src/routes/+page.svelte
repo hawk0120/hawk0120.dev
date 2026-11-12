@@ -11,6 +11,7 @@
   </div>
   <nav class="dock" aria-label="Main navigation">
     <a href="#about">About</a>
+    <a href="/now">Now</a>
     <a href="/projects">Projects</a>
     <a href="/blog">Writing</a>
     <a href="/library">Library</a>
