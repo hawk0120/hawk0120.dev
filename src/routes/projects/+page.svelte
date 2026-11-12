@@ -2,12 +2,11 @@
   import { projects } from '$lib/stores/projects';
 </script>
 
-<div class="page-label">02 / Projects</div>
+<div class="page-label">Projects</div>
 
 <div class="index">
   {#each projects as project, i}
     <a class="index-row" href={project.url} target="_blank" rel="noopener">
-      <span class="no">{String(i + 1).padStart(2, '0')}</span>
       <span class="body">
         <span class="title">{project.name}</span>
         <div class="desc">{project.description}</div>
@@ -48,13 +47,6 @@
     text-decoration: none;
   }
 
-  .index-row .no {
-    font-family: var(--font-mono);
-    font-size: 10.5px;
-    color: var(--text-muted);
-    width: 26px;
-    flex-shrink: 0;
-  }
 
   .index-row .body {
     flex: 1;

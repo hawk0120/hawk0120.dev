@@ -34,7 +34,7 @@
   }
 </script>
 
-<div class="page-label">03 / Writing</div>
+<div class="page-label">Writing</div>
 
 {#if loading}
   <p class="muted">Loading posts...</p>
@@ -44,7 +44,6 @@
   <div class="index">
     {#each documents as doc, i}
       <a class="index-row" href="/blog/{encodeURIComponent(doc.id)}">
-        <span class="no">{String(i + 1).padStart(2, '0')}</span>
         <span class="body">
           <span class="title">{doc.title}</span>
         </span>
@@ -91,13 +90,6 @@
     text-decoration: none;
   }
 
-  .index-row .no {
-    font-family: var(--font-mono);
-    font-size: 10.5px;
-    color: var(--text-muted);
-    width: 26px;
-    flex-shrink: 0;
-  }
 
   .index-row .body {
     flex: 1;

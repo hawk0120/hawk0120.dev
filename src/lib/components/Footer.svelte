@@ -1,4 +1,5 @@
 <script>
+  import { page } from '$app/stores';
   import { theme } from '$lib/stores/theme';
   import { onMount } from 'svelte';
 
@@ -27,7 +28,7 @@
   });
 </script>
 
-<footer>
+<footer class:landing={$page.url.pathname === "/"}>
   <div class="footer-inner">
     <div id="wcb" class="carbonbadge wcb-d"></div>
     <span class="copy">&copy; 2026 Brady Hawkins</span>
@@ -38,11 +39,16 @@
   footer {
     margin-left: 248px;
     padding: 0 56px 48px;
-    width: 100%;
+    width: calc(100% - 248px);
     box-sizing: border-box;
     color: var(--footer-text);
     position: relative;
     z-index: 1;
+  }
+
+  footer.landing {
+    margin-left: 0;
+    width: 100%;
   }
 
   .footer-inner {
@@ -128,6 +134,7 @@
   @media (max-width: 860px) {
     footer {
       margin-left: 0;
+      width: 100%;
       padding: 0 22px 40px;
     }
   }

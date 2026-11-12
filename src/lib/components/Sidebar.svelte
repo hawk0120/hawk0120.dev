@@ -9,10 +9,10 @@
     <div class="role">SOFTWARE ENGINEER &middot; MIDDELBURG, NL</div>
   </a>
   <nav class="main-nav">
-    <a href="/" class:active={$page.url.pathname === '/'}><span class="idx">01</span>Home</a>
-    <a href="/projects" class:active={$page.url.pathname.startsWith('/projects')}><span class="idx">02</span>Projects</a>
-    <a href="/blog" class:active={$page.url.pathname.startsWith('/blog')}><span class="idx">03</span>Writing</a>
-    <a href="/library" class:active={$page.url.pathname.startsWith('/library')}><span class="idx">04</span>Library</a>
+    <a href="/" class:active={$page.url.pathname === '/'}>Home</a>
+    <a href="/projects" class:active={$page.url.pathname.startsWith('/projects')}>Projects</a>
+    <a href="/blog" class:active={$page.url.pathname.startsWith('/blog')}>Writing</a>
+    <a href="/library" class:active={$page.url.pathname.startsWith('/library')}>Library</a>
   </nav>
   <div class="bottom">
     <div class="socials">
@@ -94,11 +94,6 @@
     transition: color 0.15s;
   }
 
-  .main-nav a .idx {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    opacity: 0.7;
-  }
 
   .main-nav a:hover {
     color: var(--text-color);
@@ -154,6 +149,10 @@
   }
 
   @media (max-width: 860px) {
+    .topbar { flex-wrap: wrap; gap: 16px; }
+    .topbar > .name { white-space: nowrap; }
+    .topbar nav { flex-wrap: wrap; gap: 16px; }
+
     .sidebar {
       display: none;
     }

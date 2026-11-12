@@ -60,7 +60,7 @@
   }
 </script>
 
-<div class="page-label">04 / Library</div>
+<div class="page-label">Library</div>
 
 {#if loading}
   <p class="muted">Loading library...</p>
