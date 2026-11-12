@@ -1,5 +1,5 @@
 <script>
-  import Header from '$lib/components/Header.svelte';
+  import Sidebar from '$lib/components/Sidebar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import Water from '$lib/components/Water.svelte';
   import { theme } from '$lib/stores/theme';
@@ -11,24 +11,19 @@
   onMount(() => {
     const stored = localStorage.getItem('theme') || 'dark';
     theme.set(stored);
-
-    if (!document.querySelector('link[href*="font-awesome"]')) {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
-      document.head.appendChild(link);
-    }
   });
 </script>
 
 <div class="layout">
 <Water />
-<Header />
+<div class="fog" />
+<Sidebar />
   <main>
-    <slot />
+    <div class="content">
+      <slot />
+    </div>
   </main>
 <Footer />
-  <a href="#top" class="back-to-top">&uarr; top</a>
 </div>
 
 <svelte:head>
@@ -51,26 +46,47 @@
     flex: 1;
   }
 
+  .fog {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      var(--fog-top) 0%,
+      var(--fog-mid) 48%,
+      var(--fog-bottom) 100%
+    );
+    backdrop-filter: blur(var(--fog-blur)) saturate(1.05);
+    -webkit-backdrop-filter: blur(var(--fog-blur)) saturate(1.05);
+  }
+
+  @media (max-width: 860px) {
+    .fog {
+      display: none;
+    }
+  }
+
   main {
     flex: 1;
-    padding: 2rem 2rem;
-    max-width: 720px;
-    margin: 0 auto;
+    margin-left: 248px;
+    padding: 72px 56px 110px;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
+    z-index: 1;
   }
 
-  .back-to-top {
-    display: block;
-    text-align: center;
-    padding: 0 2rem 3rem;
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: color 0.15s;
+  .content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
   }
 
-  .back-to-top:hover {
-    color: var(--accent);
+  @media (max-width: 860px) {
+    main {
+      margin-left: 0;
+      padding: 44px 22px 72px;
+    }
   }
 </style>

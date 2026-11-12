@@ -3,10 +3,13 @@
   import { onMount } from 'svelte';
 
   onMount(() => {
-    const script = document.createElement('script');
-    script.src = '/badge.js';
-    script.async = true;
-    document.body.appendChild(script);
+    const host = window.location.hostname;
+    if (host === 'bradyhawkins.dev' || host === 'www.bradyhawkins.dev') {
+      const script = document.createElement('script');
+      script.src = '/badge.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
 
     const observer = new MutationObserver(() => {
       const badge = document.getElementById('wcb');
@@ -25,41 +28,39 @@
 </script>
 
 <footer>
-  <div class="footer-content">
+  <div class="footer-inner">
     <div id="wcb" class="carbonbadge wcb-d"></div>
-    <div class="links">
-      <a href="https://www.linkedin.com/in/brady-hawkins" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> linkedin</a>
-      <a href="https://github.com/hawk0120" target="_blank" rel="noopener"><i class="fab fa-github"></i> github</a>
-      <a href="https://bsky.app/profile/bradyhawkins.dev" target="_blank" rel="noopener">
-        <svg viewBox="0 0 600 530" width="14" height="12" xmlns="http://www.w3.org/2000/svg">
-          <path d="m135.72 44.03c66.496 49.921 138.02 151.14 164.28 205.46 26.262-54.316 97.782-155.54 164.28-205.46 47.98-36.021 125.72-63.892 125.72 24.795 0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.3797-3.6904-10.832-3.7077-7.8964-0.0174-2.9357-1.1937 0.51669-3.7077 7.8964-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.4491-163.25-81.433-5.9562-21.282-16.111-152.36-16.111-170.07 0-88.687 77.742-60.816 125.72-24.795z" fill="currentColor"/>
-        </svg>
-        bsky
-      </a>
-      <a href="/rss.xml"><i class="fa-solid fa-rss"></i> rss</a>
-    </div>
+    <span class="copy">&copy; 2026 Brady Hawkins</span>
   </div>
 </footer>
 
 <style>
   footer {
-    padding: 2rem;
-    font-size: 0.85rem;
-    color: var(--footer-text);
-    max-width: 720px;
-    margin: 0 auto;
+    margin-left: 248px;
+    padding: 0 56px 48px;
     width: 100%;
     box-sizing: border-box;
+    color: var(--footer-text);
+    position: relative;
+    z-index: 1;
   }
 
-  .footer-content {
+  .footer-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-color);
-    gap: 1rem;
     flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .copy {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
   }
 
   #wcb.carbonbadge {
@@ -124,22 +125,10 @@
     color: #2d2d2d !important;
   }
 
-  .links {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-  }
-
-  .links a {
-    color: var(--footer-text);
-    text-decoration: none;
-    transition: color 0.15s;
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
-
-  .links a:hover {
-    color: var(--accent);
+  @media (max-width: 860px) {
+    footer {
+      margin-left: 0;
+      padding: 0 22px 40px;
+    }
   }
 </style>

@@ -7,15 +7,18 @@
   let animationId = 0;
   let startTime = 0;
   let program;
-  let nightBlend = 1.0;
-  let targetNight = 1.0;
+  let nightBlend = typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme') === 'dark' ? 1.0 : 0.0;
+  let targetNight = nightBlend;
   let nightFadeStart = 0;
   let ripples = [];
   const MAX_RIPPLES = 10;
   let lastMouseRipple = 0;
   let lastMousePos = { x: 0, y: 0 };
 
+  let isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 860px)').matches;
+
   onMount(() => {
+    if (isMobile) return;
     initWebGL();
     startTime = performance.now();
     animate();
@@ -502,5 +505,15 @@
     height: 100%;
     z-index: -1;
     pointer-events: auto;
+    opacity: 0.45;  }
+
+  :global(html[data-theme="light"]) canvas {
+    opacity: 0.3;
+  }
+
+  @media (max-width: 860px) {
+    canvas {
+      display: none;
+    }
   }
 </style>

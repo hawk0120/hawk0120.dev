@@ -60,7 +60,7 @@
   }
 </script>
 
-<h2>Library</h2>
+<div class="page-label">04 / Library</div>
 
 {#if loading}
   <p class="muted">Loading library...</p>
@@ -126,13 +126,23 @@
 {/if}
 
 <style>
-  h2 {
-    font-size: 0.85rem;
+  .page-label {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
     color: var(--text-muted);
-    margin: 0 0 1.5rem;
-    font-weight: 600;
+    margin: 0 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .page-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
   }
 
   .muted {
@@ -148,10 +158,13 @@
   }
 
   h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 0 0 0.75rem;
-    color: var(--text-color);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin: 0 0 0.9rem;
+    color: var(--text-muted);
   }
 
   .book-grid {
@@ -161,19 +174,15 @@
   }
 
   .book-card {
-    background: rgba(0,0,0,0.03);
+    background: var(--surface-color);
     border: 1px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: 10px;
     overflow: hidden;
-    transition: transform 0.15s;
-  }
-
-  :global([data-theme="dark"]) .book-card {
-    background: rgba(255,255,255,0.03);
+    transition: border-color 0.15s;
   }
 
   .book-card:hover {
-    transform: translateY(-2px);
+    border-color: var(--accent);
   }
 
   .cover {
