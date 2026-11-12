@@ -1,18 +1,6 @@
-import { c as create_ssr_component, s as setContext, v as validate_component, m as missing_component } from "./ssr.js";
+import { c as create_ssr_component, a as setContext, v as validate_component, m as missing_component } from "./ssr.js";
 import { a as afterUpdate } from "./ssr2.js";
-import "./environment.js";
-let public_env = {};
-function set_private_env(environment) {
-}
-function set_public_env(environment) {
-  public_env = environment;
-}
-let read_implementation = null;
-function set_read_implementation(fn) {
-  read_implementation = fn;
-}
-function set_manifest(_) {
-}
+import "./server.js";
 const Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { stores } = $$props;
   let { page } = $$props;
@@ -93,6 +81,18 @@ const Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   } while (!$$settled);
   return $$rendered;
 });
+let read_implementation = null;
+function set_read_implementation(fn) {
+  read_implementation = fn;
+}
+function set_manifest(_) {
+}
+let public_env = {};
+function set_private_env(environment) {
+}
+function set_public_env(environment) {
+  public_env = environment;
+}
 const options = {
   app_template_contains_nonce: false,
   async: false,
@@ -112,7 +112,7 @@ const options = {
   server_error_boundaries: false,
   templates: {
     app: ({ head, body, assets, nonce, env }) => `<!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="top">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -125,34 +125,48 @@ const options = {
     <\/script>
     <style>
       :root {
-        --bg-color: #0a0a0a;
-        --text-color: #e0e0e0;
-        --header-bg: transparent;
-        --header-text: #e0e0e0;
-        --footer-bg: transparent;
-        --footer-text: #e0e0e0;
-        --border-color: #333;
-        --accent-color: #64b5f6;
+        --bg-color: #f7f5f0;
+        --surface-color: #fdfbf7;
+        --text-color: #262420;
+        --text-muted: #827c6e;
+        --accent: #a96535;
+        --accent-hover: #8f5527;
+        --accent-ink: #ffffff;
+        --border-color: #e5e0d3;
+        --header-text: #262420;
+        --footer-text: #827c6e;
+        --font-serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
+        --font-sans: 'Helvetica Neue', Helvetica, Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, monospace;
       }
-      html[data-theme="light"] {
-        --bg-color: #ffffff;
-        --text-color: #1a1a1a;
-        --header-bg: transparent;
-        --header-text: #1a1a1a;
-        --footer-bg: transparent;
-        --footer-text: #1a1a1a;
-        --border-color: #ddd;
-        --accent-color: #1976d2;
+      html[data-theme="dark"] {
+        --bg-color: #181713;
+        --surface-color: #201e19;
+        --text-color: #e3dfd4;
+        --text-muted: #948d7d;
+        --accent: #cf9459;
+        --accent-hover: #e0ab74;
+        --accent-ink: #181713;
+        --border-color: #2e2c25;
+        --header-text: #e3dfd4;
+        --footer-text: #948d7d;
       }
       body {
         margin: 0;
         padding: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        font-family: var(--font-sans);
+        font-size: 15px;
         background-color: var(--bg-color);
         color: var(--text-color);
         min-height: 100vh;
         display: flex;
         flex-direction: column;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      ::selection {
+        background-color: var(--accent);
+        color: var(--accent-ink);
       }
     </style>
     ` + head + '\n  </head>\n  <body>\n    <div id="svelte">' + body + "</div>\n  </body>\n</html>\n",
@@ -227,7 +241,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "5x8ckf"
+  version_hash: "1bnolmi"
 };
 async function get_hooks() {
   let handle;

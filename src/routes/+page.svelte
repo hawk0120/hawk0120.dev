@@ -1,45 +1,60 @@
-<script>
-  import { projects } from '$lib/stores/projects';
-</script>
+<div class="page-label">01 / Home</div>
 
-<div class="home fade-in">
-  <div class="intro">
-    <p class="tagline">Software Engineer</p>
-    <p>Hi! Thanks for stopping by.</p>
-    <p>
-      I'm Brady, a Canadian software engineer based in the Netherlands.
-      I work on the financials team at Keylane, building products that
-      put more control back in users' hands. I focus on Kotlin, Java,
-      and TypeScript, and spend my free time exploring local LLMs,
-      homelab infrastructure, and agentic AI memory.
-    </p>
-    <p class="email">
-      <a href="mailto:brady93hawkins@gmail.com">brady93hawkins&#64;gmail.com</a>
-    </p>
-  </div>
-  <div class="photo-wrapper">
-    <img src="/photo-me.webp" alt="Photo of Brady" class="photo" />
+<div class="hero fade-in">
+  <h1>I'm Brady, a <em>Canadian</em> software engineer based in the Netherlands.</h1>
+  <div class="hero-grid">
+    <div class="hero-bio">
+      <p>
+        I work on the financials team at <strong>Keylane</strong>, building
+        products that put more control back in users' hands.
+      </p>
+      <p>
+        I focus on <strong>Kotlin, Java and TypeScript</strong>, with a soft
+        spot for local LLMs, homelab infrastructure and agentic AI memory.
+      </p>
+      <a class="bigmail" href="mailto:brady93hawkins@gmail.com">brady93hawkins@gmail.com</a>
+    </div>
+    <figure class="hero-photo">
+      <img src="/photo-me.webp" alt="Photo of Brady" />
+      <figcaption>THE AUTHOR</figcaption>
+    </figure>
   </div>
 </div>
 
-<div class="projects-section">
-  <h2>Projects</h2>
-  <div class="projects-list">
-    {#each projects as project}
-      <div class="project">
-        <a href={project.url} target="_blank" rel="noopener">{project.name}</a>
-        <p>{project.description}</p>
-      </div>
-    {/each}
+<div class="currently">
+  <h2>Currently</h2>
+  <div class="row">
+    <span class="k">Working</span>
+    <span class="v">Financials team <span>at Keylane</span></span>
+  </div>
+  <div class="row">
+    <span class="k">Building</span>
+    <span class="v">On pause <span>- baby arriving any day now</span></span>
+  </div>
+  <div class="row">
+    <span class="k">Reading</span>
+    <span class="v">Endure <span>- Alex Hutchinson</span></span>
   </div>
 </div>
 
 <style>
-  .home {
+  .page-label {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 40px;
     display: flex;
-    gap: 2.5rem;
-    align-items: flex-start;
-    margin-bottom: 3rem;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .page-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
   }
 
   .fade-in > * {
@@ -56,90 +71,143 @@
   }
 
   .fade-in > *:nth-child(1) { animation-delay: 0s; }
-  .fade-in > *:nth-child(2) { animation-delay: 0.2s; }
+  .fade-in > *:nth-child(2) { animation-delay: 0.15s; }
 
-  .intro {
-    flex: 1;
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: 44px;
+    line-height: 1.18;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin: 0 0 40px;
+    max-width: 19ch;
   }
 
-  .intro p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--text-color);
-    margin: 0 0 0.75rem;
-  }
-
-  .tagline {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .email a {
+  .hero h1 em {
+    font-style: italic;
     color: var(--accent);
-    text-decoration: none;
   }
 
-  .email a:hover {
-    color: var(--accent-hover);
+  .hero-grid {
+    display: flex;
+    gap: 56px;
+    align-items: flex-start;
   }
 
-  .photo-wrapper {
-    flex-shrink: 0;
-    padding-top: 0.5rem;
+  .hero-bio {
+    flex: 1;
+    min-width: 0;
   }
 
-  .photo {
-    width: 160px;
-    height: auto;
-    border-radius: 12px;
-  }
-
-  .projects-section {
-    margin-top: 1rem;
-  }
-
-  h2 {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+  .hero-bio p {
+    font-size: 15.5px;
+    line-height: 1.7;
     color: var(--text-muted);
-    margin: 0 0 1rem;
+    margin: 0 0 14px;
+    max-width: 50ch;
+  }
+
+  .hero-bio p strong {
+    color: var(--text-color);
     font-weight: 600;
   }
 
-  .project {
-    margin-bottom: 1.25rem;
+  .hero-photo {
+    width: 180px;
+    flex-shrink: 0;
+    margin: 4px 0 0;
   }
 
-  .project a {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text-color);
+  .hero-photo img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+  }
+
+  .hero-photo figcaption {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    color: var(--text-muted);
+    padding-top: 8px;
+    margin: 0;
+    letter-spacing: 0.06em;
+  }
+
+  .bigmail {
+    display: inline-block;
+    margin-top: 18px;
+    font-family: var(--font-serif);
+    font-size: 17px;
     text-decoration: none;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
     transition: color 0.15s;
   }
 
-  .project a:hover {
+  .bigmail:hover {
     color: var(--accent);
   }
 
-  .project p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin: 0.25rem 0 0;
-    line-height: 1.5;
+  .currently {
+    margin-top: 72px;
+    border-top: 1px solid var(--border-color);
+    max-width: 560px;
   }
 
-  @media (max-width: 580px) {
-    .home {
-      flex-direction: column-reverse;
-      align-items: center;
-      text-align: center;
+  .currently h2 {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin: 18px 0 2px;
+  }
+
+  .currently .row {
+    display: flex;
+    gap: 24px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--border-color);
+    align-items: baseline;
+  }
+
+  .currently .k {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--accent);
+    width: 76px;
+    flex-shrink: 0;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .currently .v {
+    font-size: 14px;
+  }
+
+  .currently .v span {
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 860px) {
+    .hero h1 {
+      font-size: 32px;
     }
 
-    .photo {
-      width: 140px;
+    .hero-grid {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .hero-photo {
+      width: 150px;
+    }
+
+    .currently .row {
+      flex-direction: column;
+      gap: 2px;
     }
   }
 </style>

@@ -7,8 +7,8 @@
   let animationId = 0;
   let startTime = 0;
   let program;
-  let nightBlend = 1.0;
-  let targetNight = 1.0;
+  let nightBlend = typeof localStorage !== 'undefined' && (localStorage.getItem('theme') || 'dark') === 'dark' ? 1.0 : 0.0;
+  let targetNight = nightBlend;
   let nightFadeStart = 0;
   let ripples = [];
   const MAX_RIPPLES = 10;
@@ -502,5 +502,10 @@
     height: 100%;
     z-index: -1;
     pointer-events: auto;
+    opacity: 0.45;
+  }
+
+  :global(html[data-theme="light"]) canvas {
+    opacity: 0.3;
   }
 </style>

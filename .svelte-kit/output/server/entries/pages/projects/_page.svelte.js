@@ -1,60 +1,57 @@
 import { c as create_ssr_component, f as each, b as add_attribute, e as escape } from "../../../chunks/ssr.js";
 const projects = [
   {
+    name: "Watney4",
+    description: "A self-hosted AI assistant built in Kotlin that combines persistent memory, tool execution, voice interactions, and automation workflows. Powered by local and remote language models, Watney4 explores practical agentic AI while maintaining complete ownership of data, infrastructure, and execution.",
+    url: "https://github.com/hawk0120/watney4",
+    section: "Featured"
+  },
+  {
     name: "Thomas",
-    description: "Agentic AI that mimics natural intelligence through persistent memory and various tools.",
-    url: "https://bsky.app/profile/thomasmind54.bsky.social"
+    description: "The first iteration of what would become Watney4. An experimental AI assistant exploring memory, reflection, and long-term interaction through a Kotlin/Spring Boot architecture. Established the core ideas around persistent memory, tool-based actions, and long-term context that later evolved into more sophisticated implementations.",
+    url: "https://github.com/hawk0120/Thomas",
+    section: "Featured"
+  },
+  {
+    name: "Turtles",
+    description: "A modern terminal file manager written in Kotlin that brings desktop-style interactions to the command line. Features mouse-driven navigation, drag-and-drop operations, visual selection modes, live search, file previews, and GraalVM native compilation for fast startup and minimal runtime overhead.",
+    url: "https://github.com/hawk0120/turtles",
+    section: "Featured"
   },
   {
     name: "clammy",
-    description: "The project is a Insurance Claim Management Platform, powered by Angular on the front end. I wrote the REST Service in Java/Spring and TypeScript/Express as an experiment in verbosity. The user can create, resolve and retrieve insurance claims.",
-    url: "https://github.com/hawk0120/clammy"
+    description: "An insurance claims management platform built to explore backend architecture and API design. Supports claim creation, retrieval, and resolution workflows through RESTful services implemented in both Java/Spring Boot and TypeScript/Express, enabling comparison of different backend approaches against the same domain model.",
+    url: "https://github.com/hawk0120/clammy",
+    section: "Featured"
+  },
+  {
+    name: "ToolRunner",
+    description: "A Kotlin framework for building and orchestrating reusable tools and workflows. Designed to provide a strongly typed foundation for automation, agent execution, and developer productivity applications.",
+    url: "https://github.com/hawk0120/ToolRunner",
+    section: "Featured"
   },
   {
     name: "debby",
-    description: "debby is file based database system. I enjoy the speed and ease of sqlLite, but found myself wanting something even simpler so I built a database system that stores data in a file. It has read, write, and update commands. It loads the entire database into memory when the read command is called. Its a simple solution for small projects.",
-    url: "https://github.com/hawk0120/debby"
+    description: "A lightweight file-based database engine created as an experiment in simplifying data persistence. Supports read, write, and update operations while storing structured data directly on disk, making it ideal for small projects that prioritize simplicity over traditional database complexity.",
+    url: "https://github.com/hawk0120/debby",
+    section: "Featured"
   },
   {
     name: "Weapy",
-    description: "Developed a mobile application that tracks and displays real-time pollen levels for trees, grass, weeds, and mold based on the user's current location. Used React Native, @rneui/themed for custom theming, and react-native-elements for UI components. Features include automatic location-based updates, a manual location reset modal, and animated indicators for pollen severity.",
-    url: "https://www.bradyhawkins.dev/blog/"
-  },
-  {
-    name: "Songbird Tribe",
-    description: "The project is a React based landing page for a musician that I designed and developed.",
-    url: "http://www.songbirdtribe.com"
-  },
-  {
-    name: "bowmaneconomics.ca",
-    description: "A static website written in vanilla javascript, html, and css. The client wanted a stripped down UI to market their services.",
-    url: "https://www.bowmaneconomics.ca"
-  },
-  {
-    name: "ScottyAuto.ca",
-    description: "A standalone single-page application developed with React and TypeScript, providing customers with a dedicated portal for interacting with Scotty's Auto services. It features a contact form utilizing Formspree for seamless communication with the company.",
-    url: "https://www.scottysauto.ca"
-  },
-  {
-    name: "Personal portfolio site",
-    description: "Used Angular to create personal website that dynamically render markdown files in blog posts",
-    url: "https://www.bradyhawkins.dev"
-  },
-  {
-    name: "compassionatekenora.ca",
-    description: "A wordpress multipage application that to brought awareness to the grassroots organization. Lead the designed and implementation.",
-    url: "https://www.compassionatekenora.ca"
+    description: "A mobile application that tracks and displays real-time pollen levels for trees, grass, weeds, and mold based on the user's current location. Built with React Native, featuring automatic location detection, severity indicators, and location-aware environmental reporting.",
+    url: "https://www.bradyhawkins.dev/blog/",
+    section: "Featured"
   }
 ];
 const css = {
-  code: ".projects-container.svelte-122f3fg.svelte-122f3fg{max-width:1000px;margin:0 auto;padding:2rem}h2.svelte-122f3fg.svelte-122f3fg{color:var(--text-color);border-bottom:2px solid var(--accent-color);padding-bottom:0.5rem;margin-bottom:2rem}.projects-grid.svelte-122f3fg.svelte-122f3fg{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:1.5rem}.project-card.svelte-122f3fg.svelte-122f3fg{background-color:var(--bg-color);border:1px solid var(--border-color);border-radius:8px;padding:1.5rem;transition:transform 0.2s, box-shadow 0.2s}.project-card.svelte-122f3fg.svelte-122f3fg:hover{transform:translateY(-4px);box-shadow:0 4px 12px rgba(0, 0, 0, 0.1)}.project-card.svelte-122f3fg h3.svelte-122f3fg{margin-top:0;margin-bottom:0.5rem}.project-card.svelte-122f3fg a.svelte-122f3fg{color:var(--accent-color);text-decoration:none}.project-card.svelte-122f3fg a.svelte-122f3fg:hover{text-decoration:underline}.project-card.svelte-122f3fg p.svelte-122f3fg{color:var(--text-color);line-height:1.6;margin:0;font-size:0.95rem}@media(max-width: 640px){.projects-container.svelte-122f3fg.svelte-122f3fg{padding:1rem}.projects-grid.svelte-122f3fg.svelte-122f3fg{grid-template-columns:1fr}}",
-  map: `{"version":3,"file":"+page.svelte","sources":["+page.svelte"],"sourcesContent":["<script>\\n  import { projects } from '$lib/stores/projects';\\n<\/script>\\n\\n<div class=\\"projects-container\\">\\n  <h2>Projects</h2>\\n  <div class=\\"projects-grid\\">\\n    {#each projects as project}\\n      <div class=\\"project-card\\">\\n        <h3><a href={project.url} target=\\"_blank\\" rel=\\"noopener\\">{project.name}</a></h3>\\n        <p>{project.description}</p>\\n      </div>\\n    {/each}\\n  </div>\\n</div>\\n\\n<style>\\n  .projects-container {\\n    max-width: 1000px;\\n    margin: 0 auto;\\n    padding: 2rem;\\n  }\\n\\n  h2 {\\n    color: var(--text-color);\\n    border-bottom: 2px solid var(--accent-color);\\n    padding-bottom: 0.5rem;\\n    margin-bottom: 2rem;\\n  }\\n\\n  .projects-grid {\\n    display: grid;\\n    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));\\n    gap: 1.5rem;\\n  }\\n\\n  .project-card {\\n    background-color: var(--bg-color);\\n    border: 1px solid var(--border-color);\\n    border-radius: 8px;\\n    padding: 1.5rem;\\n    transition: transform 0.2s, box-shadow 0.2s;\\n  }\\n\\n  .project-card:hover {\\n    transform: translateY(-4px);\\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\\n  }\\n\\n  .project-card h3 {\\n    margin-top: 0;\\n    margin-bottom: 0.5rem;\\n  }\\n\\n  .project-card a {\\n    color: var(--accent-color);\\n    text-decoration: none;\\n  }\\n\\n  .project-card a:hover {\\n    text-decoration: underline;\\n  }\\n\\n  .project-card p {\\n    color: var(--text-color);\\n    line-height: 1.6;\\n    margin: 0;\\n    font-size: 0.95rem;\\n  }\\n\\n  @media (max-width: 640px) {\\n    .projects-container {\\n      padding: 1rem;\\n    }\\n\\n    .projects-grid {\\n      grid-template-columns: 1fr;\\n    }\\n  }\\n</style>\\n"],"names":[],"mappings":"AAiBE,iDAAoB,CAClB,SAAS,CAAE,MAAM,CACjB,MAAM,CAAE,CAAC,CAAC,IAAI,CACd,OAAO,CAAE,IACX,CAEA,gCAAG,CACD,KAAK,CAAE,IAAI,YAAY,CAAC,CACxB,aAAa,CAAE,GAAG,CAAC,KAAK,CAAC,IAAI,cAAc,CAAC,CAC5C,cAAc,CAAE,MAAM,CACtB,aAAa,CAAE,IACjB,CAEA,4CAAe,CACb,OAAO,CAAE,IAAI,CACb,qBAAqB,CAAE,OAAO,SAAS,CAAC,CAAC,OAAO,KAAK,CAAC,CAAC,GAAG,CAAC,CAAC,CAC5D,GAAG,CAAE,MACP,CAEA,2CAAc,CACZ,gBAAgB,CAAE,IAAI,UAAU,CAAC,CACjC,MAAM,CAAE,GAAG,CAAC,KAAK,CAAC,IAAI,cAAc,CAAC,CACrC,aAAa,CAAE,GAAG,CAClB,OAAO,CAAE,MAAM,CACf,UAAU,CAAE,SAAS,CAAC,IAAI,CAAC,CAAC,UAAU,CAAC,IACzC,CAEA,2CAAa,MAAO,CAClB,SAAS,CAAE,WAAW,IAAI,CAAC,CAC3B,UAAU,CAAE,CAAC,CAAC,GAAG,CAAC,IAAI,CAAC,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,GAAG,CAC1C,CAEA,4BAAa,CAAC,iBAAG,CACf,UAAU,CAAE,CAAC,CACb,aAAa,CAAE,MACjB,CAEA,4BAAa,CAAC,gBAAE,CACd,KAAK,CAAE,IAAI,cAAc,CAAC,CAC1B,eAAe,CAAE,IACnB,CAEA,4BAAa,CAAC,gBAAC,MAAO,CACpB,eAAe,CAAE,SACnB,CAEA,4BAAa,CAAC,gBAAE,CACd,KAAK,CAAE,IAAI,YAAY,CAAC,CACxB,WAAW,CAAE,GAAG,CAChB,MAAM,CAAE,CAAC,CACT,SAAS,CAAE,OACb,CAEA,MAAO,YAAY,KAAK,CAAE,CACxB,iDAAoB,CAClB,OAAO,CAAE,IACX,CAEA,4CAAe,CACb,qBAAqB,CAAE,GACzB,CACF"}`
+  code: '.page-label.svelte-1s3642c.svelte-1s3642c{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin:0 0 40px;display:flex;align-items:center;gap:14px}.page-label.svelte-1s3642c.svelte-1s3642c::after{content:"";flex:1;height:1px;background:var(--border-color)}.index-row.svelte-1s3642c.svelte-1s3642c{display:flex;align-items:baseline;gap:24px;padding:22px 0;border-bottom:1px solid var(--border-color);text-decoration:none}.index-row.svelte-1s3642c .no.svelte-1s3642c{font-family:var(--font-mono);font-size:10.5px;color:var(--text-muted);width:26px;flex-shrink:0}.index-row.svelte-1s3642c .body.svelte-1s3642c{flex:1;min-width:0}.index-row.svelte-1s3642c .title.svelte-1s3642c{font-family:var(--font-serif);font-size:20px;font-weight:600;letter-spacing:-0.01em;color:var(--text-color);transition:color 0.15s}.index-row.svelte-1s3642c:hover .title.svelte-1s3642c{color:var(--accent)}.index-row.svelte-1s3642c .desc.svelte-1s3642c{font-size:13.5px;color:var(--text-muted);margin-top:5px;line-height:1.6;max-width:58ch}.index-row.svelte-1s3642c .meta.svelte-1s3642c{font-family:var(--font-mono);font-size:10.5px;color:var(--text-muted);white-space:nowrap;letter-spacing:0.05em}@media(max-width: 860px){.index-row.svelte-1s3642c.svelte-1s3642c{flex-wrap:wrap;gap:4px 14px}.index-row.svelte-1s3642c .meta.svelte-1s3642c{width:100%}}',
+  map: `{"version":3,"file":"+page.svelte","sources":["+page.svelte"],"sourcesContent":["<script>\\n  import { projects } from '$lib/stores/projects';\\n<\/script>\\n\\n<div class=\\"page-label\\">02 / Projects</div>\\n\\n<div class=\\"index\\">\\n  {#each projects as project, i}\\n    <a class=\\"index-row\\" href={project.url} target=\\"_blank\\" rel=\\"noopener\\">\\n      <span class=\\"no\\">{String(i + 1).padStart(2, '0')}</span>\\n      <span class=\\"body\\">\\n        <span class=\\"title\\">{project.name}</span>\\n        <div class=\\"desc\\">{project.description}</div>\\n      </span>\\n      {#if project.tag}\\n        <span class=\\"meta\\">{project.tag.toUpperCase()}</span>\\n      {/if}\\n    </a>\\n  {/each}\\n</div>\\n\\n<style>\\n  .page-label {\\n    font-family: var(--font-mono);\\n    font-size: 10.5px;\\n    letter-spacing: 0.12em;\\n    text-transform: uppercase;\\n    color: var(--text-muted);\\n    margin: 0 0 40px;\\n    display: flex;\\n    align-items: center;\\n    gap: 14px;\\n  }\\n\\n  .page-label::after {\\n    content: \\"\\";\\n    flex: 1;\\n    height: 1px;\\n    background: var(--border-color);\\n  }\\n\\n  .index-row {\\n    display: flex;\\n    align-items: baseline;\\n    gap: 24px;\\n    padding: 22px 0;\\n    border-bottom: 1px solid var(--border-color);\\n    text-decoration: none;\\n  }\\n\\n  .index-row .no {\\n    font-family: var(--font-mono);\\n    font-size: 10.5px;\\n    color: var(--text-muted);\\n    width: 26px;\\n    flex-shrink: 0;\\n  }\\n\\n  .index-row .body {\\n    flex: 1;\\n    min-width: 0;\\n  }\\n\\n  .index-row .title {\\n    font-family: var(--font-serif);\\n    font-size: 20px;\\n    font-weight: 600;\\n    letter-spacing: -0.01em;\\n    color: var(--text-color);\\n    transition: color 0.15s;\\n  }\\n\\n  .index-row:hover .title {\\n    color: var(--accent);\\n  }\\n\\n  .index-row .desc {\\n    font-size: 13.5px;\\n    color: var(--text-muted);\\n    margin-top: 5px;\\n    line-height: 1.6;\\n    max-width: 58ch;\\n  }\\n\\n  .index-row .meta {\\n    font-family: var(--font-mono);\\n    font-size: 10.5px;\\n    color: var(--text-muted);\\n    white-space: nowrap;\\n    letter-spacing: 0.05em;\\n  }\\n\\n  @media (max-width: 860px) {\\n    .index-row {\\n      flex-wrap: wrap;\\n      gap: 4px 14px;\\n    }\\n\\n    .index-row .meta {\\n      width: 100%;\\n    }\\n  }\\n</style>\\n"],"names":[],"mappings":"AAsBE,yCAAY,CACV,WAAW,CAAE,IAAI,WAAW,CAAC,CAC7B,SAAS,CAAE,MAAM,CACjB,cAAc,CAAE,MAAM,CACtB,cAAc,CAAE,SAAS,CACzB,KAAK,CAAE,IAAI,YAAY,CAAC,CACxB,MAAM,CAAE,CAAC,CAAC,CAAC,CAAC,IAAI,CAChB,OAAO,CAAE,IAAI,CACb,WAAW,CAAE,MAAM,CACnB,GAAG,CAAE,IACP,CAEA,yCAAW,OAAQ,CACjB,OAAO,CAAE,EAAE,CACX,IAAI,CAAE,CAAC,CACP,MAAM,CAAE,GAAG,CACX,UAAU,CAAE,IAAI,cAAc,CAChC,CAEA,wCAAW,CACT,OAAO,CAAE,IAAI,CACb,WAAW,CAAE,QAAQ,CACrB,GAAG,CAAE,IAAI,CACT,OAAO,CAAE,IAAI,CAAC,CAAC,CACf,aAAa,CAAE,GAAG,CAAC,KAAK,CAAC,IAAI,cAAc,CAAC,CAC5C,eAAe,CAAE,IACnB,CAEA,yBAAU,CAAC,kBAAI,CACb,WAAW,CAAE,IAAI,WAAW,CAAC,CAC7B,SAAS,CAAE,MAAM,CACjB,KAAK,CAAE,IAAI,YAAY,CAAC,CACxB,KAAK,CAAE,IAAI,CACX,WAAW,CAAE,CACf,CAEA,yBAAU,CAAC,oBAAM,CACf,IAAI,CAAE,CAAC,CACP,SAAS,CAAE,CACb,CAEA,yBAAU,CAAC,qBAAO,CAChB,WAAW,CAAE,IAAI,YAAY,CAAC,CAC9B,SAAS,CAAE,IAAI,CACf,WAAW,CAAE,GAAG,CAChB,cAAc,CAAE,OAAO,CACvB,KAAK,CAAE,IAAI,YAAY,CAAC,CACxB,UAAU,CAAE,KAAK,CAAC,KACpB,CAEA,yBAAU,MAAM,CAAC,qBAAO,CACtB,KAAK,CAAE,IAAI,QAAQ,CACrB,CAEA,yBAAU,CAAC,oBAAM,CACf,SAAS,CAAE,MAAM,CACjB,KAAK,CAAE,IAAI,YAAY,CAAC,CACxB,UAAU,CAAE,GAAG,CACf,WAAW,CAAE,GAAG,CAChB,SAAS,CAAE,IACb,CAEA,yBAAU,CAAC,oBAAM,CACf,WAAW,CAAE,IAAI,WAAW,CAAC,CAC7B,SAAS,CAAE,MAAM,CACjB,KAAK,CAAE,IAAI,YAAY,CAAC,CACxB,WAAW,CAAE,MAAM,CACnB,cAAc,CAAE,MAClB,CAEA,MAAO,YAAY,KAAK,CAAE,CACxB,wCAAW,CACT,SAAS,CAAE,IAAI,CACf,GAAG,CAAE,GAAG,CAAC,IACX,CAEA,yBAAU,CAAC,oBAAM,CACf,KAAK,CAAE,IACT,CACF"}`
 };
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
-  return `<div class="projects-container svelte-122f3fg"><h2 class="svelte-122f3fg" data-svelte-h="svelte-7jt1gw">Projects</h2> <div class="projects-grid svelte-122f3fg">${each(projects, (project) => {
-    return `<div class="project-card svelte-122f3fg"><h3 class="svelte-122f3fg"><a${add_attribute("href", project.url, 0)} target="_blank" rel="noopener" class="svelte-122f3fg">${escape(project.name)}</a></h3> <p class="svelte-122f3fg">${escape(project.description)}</p> </div>`;
-  })}</div> </div>`;
+  return `<div class="page-label svelte-1s3642c" data-svelte-h="svelte-mxtu8k">02 / Projects</div> <div class="index">${each(projects, (project, i) => {
+    return `<a class="index-row svelte-1s3642c"${add_attribute("href", project.url, 0)} target="_blank" rel="noopener"><span class="no svelte-1s3642c">${escape(String(i + 1).padStart(2, "0"))}</span> <span class="body svelte-1s3642c"><span class="title svelte-1s3642c">${escape(project.name)}</span> <div class="desc svelte-1s3642c">${escape(project.description)}</div></span> ${project.tag ? `<span class="meta svelte-1s3642c">${escape(project.tag.toUpperCase())}</span>` : ``} </a>`;
+  })} </div>`;
 });
 export {
   Page as default
