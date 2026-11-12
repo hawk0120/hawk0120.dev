@@ -79,19 +79,14 @@
 
 <svelte:head>
   <title>Now - Brady Hawkins</title>
-  <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
 <div class="page-label">Now</div>
 <header>
-  <p class="dateline">Draft / November 12, 2026</p>
+  <p class="dateline">Updated November 12, 2026</p>
   <h1>What I'm thinking about.</h1>
   <p class="intro">A snapshot, not a manifesto.</p>
 </header>
-<aside class="draft-note" aria-label="Draft notice">
-  <strong>Draft for review.</strong> These notes are excerpts from my public posts, grouped by theme.
-  They are not a new statement of my views. Wording, emphasis and what still feels current are up for review.
-</aside>
 
 <div class="notes">
   {#each notes as note}
@@ -115,7 +110,7 @@
     {/each}
   </div>
 </section>
-<p class="endnote">Draft assembled November 12, 2026. Excerpts shortened for length; spelling and punctuation lightly edited. The linked originals are the source. <a href="https://semble.so/profile/bradyhawkins.dev" target="_blank" rel="noopener">Saved links on Semble ↗</a></p>
+<p class="endnote">Updated November 12, 2026. Excerpts shortened for length; spelling and punctuation lightly edited. The linked originals are the source. <a href="https://semble.so/profile/bradyhawkins.dev" target="_blank" rel="noopener">Saved links on Semble ↗</a></p>
 
 <style>
   .page-label, .dateline, .source, .theme, .endnote {
@@ -130,9 +125,7 @@
   .dateline { margin: 0 0 18px; text-transform: uppercase; letter-spacing: .07em; }
   h1 { font-family: var(--font-serif); font-size: clamp(36px, 4vw, 48px); font-weight: 400; letter-spacing: -.025em; line-height: 1.15; margin: 0 0 18px; }
   .intro { font-size: 17px; color: var(--text-muted); margin: 0; }
-  .draft-note { max-width: 590px; margin: 36px 0 56px; padding: 16px 20px; border-left: 2px solid var(--accent); background: var(--surface-color); font-size: 12px; line-height: 1.7; color: var(--text-muted); }
-  .draft-note strong { color: var(--text-color); font-weight: 500; }
-  .notes { max-width: 610px; }
+  .notes { max-width: 610px; margin-top: 56px; }
   .notes section { padding: 0 0 32px; margin-bottom: 32px; border-bottom: 1px solid var(--border-color); }
   h2 { font-family: var(--font-serif); font-size: 25px; font-weight: 400; line-height: 1.25; margin: 0 0 16px; letter-spacing: -.015em; }
   .notes p { font-size: 15px; line-height: 1.8; margin: 0 0 16px; }
@@ -150,8 +143,7 @@
   .endnote a { border-bottom: 1px solid var(--border-color); }
   @media (max-width: 860px) {
     .page-label { margin-bottom: 32px; }
-    .draft-note { margin-bottom: 40px; }
-    h2 { font-size: 23px; }
+      h2 { font-size: 23px; }
     .reading-link { grid-template-columns: 1fr; gap: 5px; }
   }
 </style>
