@@ -18,7 +18,9 @@
 <Water />
 <Sidebar />
   <main>
-    <slot />
+    <div class="content">
+      <slot />
+    </div>
   </main>
 <Footer />
 </div>
@@ -46,10 +48,15 @@
   main {
     flex: 1;
     margin-left: 248px;
-    padding: 72px 72px 110px;
-    max-width: 960px;
+    padding: 72px 56px 110px;
     width: 100%;
     box-sizing: border-box;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
   }
 
   @media (max-width: 860px) {

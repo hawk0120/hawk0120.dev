@@ -3,10 +3,13 @@
   import { onMount } from 'svelte';
 
   onMount(() => {
-    const script = document.createElement('script');
-    script.src = '/badge.js';
-    script.async = true;
-    document.body.appendChild(script);
+    const host = window.location.hostname;
+    if (host === 'bradyhawkins.dev' || host === 'www.bradyhawkins.dev') {
+      const script = document.createElement('script');
+      script.src = '/badge.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
 
     const observer = new MutationObserver(() => {
       const badge = document.getElementById('wcb');
@@ -34,14 +37,15 @@
 <style>
   footer {
     margin-left: 248px;
-    padding: 0 72px 48px;
-    max-width: 960px;
+    padding: 0 56px 48px;
     width: 100%;
     box-sizing: border-box;
     color: var(--footer-text);
   }
 
   .footer-inner {
+    max-width: 800px;
+    margin: 0 auto;
     border-top: 1px solid var(--border-color);
     padding-top: 20px;
     display: flex;
