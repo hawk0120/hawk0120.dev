@@ -6,7 +6,7 @@
 <aside class="sidebar">
   <a class="brand" href="/">
     <div class="name">Brady Hawkins</div>
-    <div class="role">SOFTWARE ENGINEER &middot; VLISSINGEN, NL</div>
+    <div class="role">SOFTWARE ENGINEER &middot; MIDDELBURG, NL</div>
   </a>
   <nav class="main-nav">
     <a href="/" class:active={$page.url.pathname === '/'}><span class="idx">01</span>Home</a>
