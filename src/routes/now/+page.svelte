@@ -3,25 +3,25 @@
   {
     "title": "A more deliberate internet",
     "text": "I am laying low, riding my bike. I thought the atmosphere was a positive place, it is. Too much of a good thing is still bad. Thoughtful use of these platforms matters regardless who owns your data.",
-    "source": "https://eurosky.social/xrpc/com.atproto.repo.getRecord?repo=did%3Aplc%3Ada6iyhwpub7pnqbj5booh2by&collection=app.bsky.feed.post&rkey=3mzunyb6mnk2k",
+    "source": "https://bsky.app/profile/bradyhawkins.dev/post/3mzunyb6mnk2k",
     "date": "November 9, 2026"
   },
   {
     "title": "Agents and control",
     "text": "We probably don't need better prompts as much as we need more deterministic outcomes. It still feels like agents will require a fair amount of babysitting until there's some real notion of control flow.",
-    "source": "https://eurosky.social/xrpc/com.atproto.repo.getRecord?repo=did%3Aplc%3Ada6iyhwpub7pnqbj5booh2by&collection=app.bsky.feed.post&rkey=3mlbruzolts25",
+    "source": "https://bsky.app/profile/bradyhawkins.dev/post/3mlbruzolts25",
     "date": "May 7, 2026"
   },
   {
     "title": "Software is still engineering",
     "text": "Code quality affects coding agents. Clean code still matters. Hallelujah.",
-    "source": "https://eurosky.social/xrpc/com.atproto.repo.getRecord?repo=did%3Aplc%3Ada6iyhwpub7pnqbj5booh2by&collection=app.bsky.feed.post&rkey=3msa7rou6x22y",
+    "source": "https://bsky.app/profile/bradyhawkins.dev/post/3msa7rou6x22y",
     "date": "August 4, 2026"
   },
   {
     "title": "Technology in the material world",
     "text": "Looking forward to wearing a rain jacket in the Netherlands today says all you need to know about the drought and the climate crisis.",
-    "source": "https://eurosky.social/xrpc/com.atproto.repo.getRecord?repo=did%3Aplc%3Ada6iyhwpub7pnqbj5booh2by&collection=app.bsky.feed.post&rkey=3mtdfl7unyk2l",
+    "source": "https://bsky.app/profile/bradyhawkins.dev/post/3mtdfl7unyk2l",
     "date": "August 18, 2026"
   }
 ];
